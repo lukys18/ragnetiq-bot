@@ -2,6 +2,9 @@
   if (window.marcelChatbotLoaded) return;
   window.marcelChatbotLoaded = true;
 
+  // Vercel URL - ZMENIŤ LEN TU
+  const VERCEL_URL = "https://testovaci-bot.vercel.app";
+
   // Povolene domény
   const allowed = ["aipower.site", "localhost", "127.0.0.1"];
   if (!allowed.includes(window.location.hostname)) {
@@ -10,7 +13,7 @@
   }
 
   const iframe = document.createElement("iframe");
-  iframe.src = "https://testovaci-bot.vercel.app"; // tvoje Vercel URL
+  iframe.src = VERCEL_URL;
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";
   iframe.style.right = "20px";
@@ -96,7 +99,7 @@
       // Pošle resize správu do iframe po animácii, aby sa layout správne prepočítal
       setTimeout(() => {
         if (iframe.contentWindow) {
-          iframe.contentWindow.postMessage({ type: "resize" }, "https://testovaci-bot.vercel.app");
+          iframe.contentWindow.postMessage({ type: "resize" }, VERCEL_URL);
         }
       }, 500);
     } else {
@@ -115,7 +118,7 @@
 
   // Počúva správy z iframe
   window.addEventListener("message", function(event) {
-    if (event.origin !== "https://testovaci-bot.vercel.app") return;
+    if (event.origin !== VERCEL_URL) return;
     
     if (event.data.type === "chatbot-opened") {
       isOpen = true;

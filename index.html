@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>AI POWER</title>
+  <title>Ragnetiq</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="bot.css">
   <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -21,11 +21,11 @@
       <!-- Kompletný režim (otvorený) -->
       <div class="user-info">
         <div class="avatar-wrapper">
-          <img src="logo_aiPower-03-03.png" alt="AI Asistent">
+          <img src="ragnetiq logo.png" alt="Ragnetiq Asistent">
           <div class="status-indicator"></div>
         </div>
         <div class="user-details">
-          <div class="user-name">AI Asistent</div>
+          <div class="user-name">Ragnetiq Asistent</div>
           <div class="user-status">Online</div>
         </div>
       </div>
@@ -35,7 +35,7 @@
 
     <!-- Header pre zatvorený stav -->
     <div id="chatbot-header-closed" onclick="toggleChatbot()" style="display: none;">
-      <img src="logo_aiPower-03-03.png" alt="AI Asistent" style="height:40px; width:40px; border-radius:50%; object-fit:cover;">
+      <img src="ragnetiq logo.png" alt="Ragnetiq Asistent" style="height:40px; width:40px; border-radius:50%; object-fit:cover;">
     </div>
 
     <div id="chatbot-body">
@@ -60,7 +60,7 @@
     let chatHistory = [
       {
         role: "system",
-        content: "Si presný a spoľahlivý AI asistent firmy AI Power. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, poviedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: ROČNÉ predplatné €69/mesiac (€828 ročne, ušetríte 20%) alebo MESAČNÉ predplatné €79/mesiac - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní, nie týždne. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte (ako 'ukážeme demo' ak to nie je spomenuté). 6) Firma AI Power poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu."
+        content: "Si presný a spoľahlivý AI asistent firmy Ragnetiq. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, poviedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: ROČNÉ predplatné €69/mesiac (€828 ročne, ušetríte 20%) alebo MESAČNÉ predplatné €79/mesiac - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní, nie týždne. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte (ako 'ukážeme demo' ak to nie je spomenuté). 6) Firma Ragnetiq poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu."
       }
     ];
 
@@ -73,7 +73,7 @@
       }
       
       // Zobrazenie úvodnej správy
-      appendMessage("AI POWER", "Dobrý deň! Ako vám môžem pomôcť? 👋", "bot", false, false, false);
+      appendMessage("RAGNETIQ", "Dobrý deň! Ako vám môžem pomôcť? 👋", "bot", false, false, false);
       const quickRepliesDiv = document.createElement('div');
       quickRepliesDiv.className = 'quick-replies';
       quickRepliesDiv.innerHTML = `
@@ -188,7 +188,7 @@
             console.log('SUCCESS!', response.status, response.text);
             
             // Úspešná správa
-            appendMessage("AI POWER", "🎉 **Ďakujeme!** Vaša správa bola úspešne odoslaná. Odpovieme vám čo najskôr.", "bot");
+            appendMessage("RAGNETIQ", "🎉 **Ďakujeme!** Vaša správa bola úspešne odoslaná. Odpovieme vám čo najskôr.", "bot");
             
             // Skryť formulár po úspešnom odoslaní
             const formContainer = form.closest('.contact-form').parentElement;
@@ -200,7 +200,7 @@
             console.log('FAILED...', error);
             
             // Chybová správa
-            appendMessage("AI POWER", "❌ **Ups!** Nastala chyba pri odosielaní správy. Skúste to prosím znovu alebo nás kontaktujte priamo na info@aipower.site", "bot");
+            appendMessage("RAGNETIQ", "❌ **Ups!** Nastala chyba pri odosielaní správy. Skúste to prosím znovu alebo nás kontaktujte priamo na info@aipower.site", "bot");
             
             // Obnoviť tlačidlo
             submitBtn.disabled = false;
@@ -252,7 +252,7 @@ async function sendMessage() {
     .replace(/[\u0300-\u036f]/g, ''); // odstráni diakritiku
 
   // Vždy používaj RAG systém pre odpovede
-  appendMessage("AI POWER", "Hľadám relevantné informácie...", "bot", true);
+  appendMessage("RAGNETIQ", "Hľadám relevantné informácie...", "bot", true);
 
   try {
     await delay(800);
@@ -309,7 +309,7 @@ async function sendMessage() {
                             sources.some(source => source.toLowerCase().includes("kontakt"));
 
     removeLastBotMessage();
-    appendMessage("AI POWER", reply, "bot", false, false, isInsufficientAnswer || isContactRelated);
+    appendMessage("RAGNETIQ", reply, "bot", false, false, isInsufficientAnswer || isContactRelated);
     chatHistory.push({ role: "assistant", content: reply });
 
   } catch (error) {
@@ -318,9 +318,9 @@ async function sendMessage() {
     
     // Fallback pre lokálne testovanie
     if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-      appendMessage("AI POWER", "Na túto otázku neviem dostatočne odpovedať.", "bot", false, false, true);
+      appendMessage("RAGNETIQ", "Na túto otázku neviem dostatočne odpovedať.", "bot", false, false, true);
     } else {
-      appendMessage("AI POWER", `Ups, nastala chyba: ${error.message}`, "bot");
+      appendMessage("RAGNETIQ", `Ups, nastala chyba: ${error.message}`, "bot");
     }
   }
 }

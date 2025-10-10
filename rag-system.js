@@ -133,7 +133,7 @@ class RAGSystem {
       ? ' DÔLEŽITÉ: Calendly link formátuj ako klikateľný hyperlink: <a href="https://calendly.com/aipoweragency/new-meeting?month=2025-08" target="_blank">Rezervovať konzultáciu</a>.'
       : '';
     
-    return `PRESNÉ INFORMÁCIE O AI POWER (používaj LEN tieto fakty):\n\n${context}\n\nINŠTRUKCIE: Odpovedaj presne podľa týchto informácií. NEPRÍDÁVAJ žiadne vlastné detaily.${bookingInstruction} PRESNÉ CENY: ROČNÉ €69/mesiac (ušetríte 20%) alebo MESAČNÉ €79/mesiac - NIKDY iné sumy!`;
+    return `PRESNÉ INFORMÁCIE O RAGNETIQ (používaj LEN tieto fakty):\n\n${context}\n\nINŠTRUKCIE: Odpovedaj presne podľa týchto informácií. NEPRÍDÁVAJ žiadne vlastné detaily.${bookingInstruction} PRESNÉ CENY: ROČNÉ €69/mesiac (ušetríte 20%) alebo MESAČNÉ €79/mesiac - NIKDY iné sumy!`;
   }
 
   // Získanie kontextu pre špecifickú kategóriu

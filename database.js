@@ -1,26 +1,7 @@
 // database.js
-// AI Power Knowledge Base - Aktualizovaná databáza (Október 2025)
+// Ragnetiq Knowledge Base - Aktualizovaná databáza (Október 2025)
 
 window.aiPowerData = {
-  company: {
-    name: 'AI Power',
-    founded: 2025,
-    founder: 'Marcel Lehocky',
-    location: 'Bratislava, Slovensko',
-    website: 'https://www.aipower.site',
-    email: 'info@aipower.site',
-    phone: '+421 904 603 171',
-    calendly: 'https://calendly.com/aipoweragency/new-meeting?month=2025-08'
-  },
-  
- workingHours: {
-    monday: "8:00–17:00",
-    tuesday: "8:00–17:00", 
-    wednesday: "8:00–17:00",
-    thursday: "8:00–17:00",
-    friday: "8:00–16:00",
-    weekend: "zatvorené"
-  },
   
   knowledgeBase: [
     {
@@ -76,15 +57,15 @@ window.aiPowerData = {
       id: "booking-consultation",
       category: "booking",
       title: "Rezervácia konzultácie", 
-      content: "Môžete si rezervovať bezplatnú konzultáciu na 30-minútový online hovor. Počas konzultácie: vypočujeme si vaše potreby, predstavíme možnosti AI Power platformy, prediskutujeme špecifické požiadavky. Konzultácia je bezplatná a nezáväzná. Rezervujte si termín: https://calendly.com/aipoweragency/new-meeting?month=2025-08",
+      content: "Môžete si rezervovať bezplatnú konzultáciu na 30-minútový online hovor. Počas konzultácie: vypočujeme si vaše potreby, predstavíme možnosti Ragnetiq platformy, prediskutujeme špecifické požiadavky. Konzultácia je bezplatná a nezáväzná. Rezervujte si termín: https://calendly.com/aipoweragency/new-meeting?month=2025-08",
       keywords: ["rezervácia", "konzultácia", "Calendly", "stretnutie", "bezplatné", "30 minút", "online hovor", "nezáväzná"]
     },
     {
       id: "company-info",
       category: "company",
-      title: "O spoločnosti AI Power",
-      content: "AI Power - AI chatboty pre slovenské firmy. Personalizóvané, bezpečné a jednoducho integrovateľné riešenia. Založená v roku 2025 Marcelom Lehockým. Sídlime v Bratislave, Slovensko. Naše motto: 'AI Chatbot, ktorý predáva kým vy spíte'. Špecializujeme sa výhradne na tvorbu AI chatbotov na mieru. Kontakt: info@aipower.site, +421 904 603 171, www.aipower.site",
-      keywords: ["o nás", "AI Power", "slovenské firmy", "založená 2025", "Marcel Lehocky", "Bratislava", "personalizóvané", "bezpečné"]
+      title: "O spoločnosti Ragnetiq",
+      content: "Ragnetiq - AI chatboty pre slovenské firmy. Personalizóvané, bezpečné a jednoducho integrovateľné riešenia. Založená v roku 2025 Marcelom Lehockým. Sídlime v Bratislave, Slovensko. Naše motto: 'AI Chatbot, ktorý predáva kým vy spíte'. Špecializujeme sa výhradne na tvorbu AI chatbotov na mieru. Kontakt: info@aipower.site, +421 904 603 171, www.aipower.site",
+      keywords: ["o nás", "Ragnetiq", "slovenské firmy", "založená 2025", "Marcel Lehocky", "Bratislava", "personalizóvané", "bezpečné", "majiteľ", "zakladateľ"]
     },
     {
       id: "contact-info",
@@ -110,9 +91,9 @@ window.aiPowerData = {
     {
       id: "competitive-advantages",
       category: "advantages",
-      title: "Prečo AI Power - naše výhody",
-      content: "**Prečo si vybrať AI Power:** 100% slovenský prirodzený jazyk (nie preklad), chatbot na mieru (vaše farby, logo, brand), rýchla implementácia (3-5 dní), jedna jasná cena bez skrytých poplatkov, neobmedzené konverzácie, natrénovaný AI ktorý pozná vaše produkty, email podpora s odpoveďou do 24h, pravidelné aktualizácie 2x/mesiac. Nie sme šablóny - každý chatbot je unikátny!",
-      keywords: ["prečo AI Power", "slovenský jazyk", "na mieru", "3-5 dní", "jedna cena", "neobmedzené", "24h odpoveď", "unikátny"]
+      title: "Prečo Ragnetiq - naše výhody",
+      content: "**Prečo si vybrať Ragnetiq:** 100% slovenský prirodzený jazyk (nie preklad), chatbot na mieru (vaše farby, logo, brand), rýchla implementácia (3-5 dní), jedna jasná cena bez skrytých poplatkov, neobmedzené konverzácie, natrénovaný AI ktorý pozná vaše produkty, email podpora s odpoveďou do 24h, pravidelné aktualizácie 2x/mesiac. Nie sme šablóny - každý chatbot je unikátny!",
+      keywords: ["prečo Ragnetiq", "slovenský jazyk", "na mieru", "3-5 dní", "jedna cena", "neobmedzené", "24h odpoveď", "unikátny"]
     },
     {
       id: "target-clients",
@@ -132,7 +113,7 @@ window.aiPowerData = {
       id: "gdpr-privacy",
       category: "legal",
       title: "GDPR a ochrana súkromia",
-      content: "Sme plne v súlade s GDPR nariadeniami a zásadami ochrany súkromia. Všetky údaje spracovávame bezpečne a transparentne. Naše chatboty sú navrhnuté s ohľadom na ochranu osobných údajov a súkromie používateľov. Copyright © 2025 AI Power. Všetky práva vyhradené.",
+      content: "Sme plne v súlade s GDPR nariadeniami a zásadami ochrany súkromia. Všetky údaje spracovávame bezpečne a transparentne. Naše chatboty sú navrhnuté s ohľadom na ochranu osobných údajov a súkromie používateľov. Copyright © 2025 Ragnetiq. Všetky práva vyhradené.",
       keywords: ["GDPR", "ochrana údajov", "súkromie", "bezpečne", "transparentne", "copyright 2025", "ochrana"]
     },
     {
@@ -146,7 +127,7 @@ window.aiPowerData = {
       id: "consultation-details",
       category: "booking",
       title: "Bezplatná konzultácia - detaily",
-      content: "**Objednať bezplatnú konzultáciu** - 30-minútový online hovor. Čo sa deje počas konzultácie: 1) Vypočujeme si vaše potreby a ciele, 2) Predstavíme možnosti AI Power platformy, 3) Prediskutujeme špecifické požiadavky pre váš chatbot, 4) Navrhneme stratégiu implementácie. Konzultácia je úplne bezplatná a nezáväzná. Začnime spolu!",
+      content: "**Objednať bezplatnú konzultáciu** - 30-minútový online hovor. Čo sa deje počas konzultácie: 1) Vypočujeme si vaše potreby a ciele, 2) Predstavíme možnosti Ragnetiq platformy, 3) Prediskutujeme špecifické požiadavky pre váš chatbot, 4) Navrhneme stratégiu implementácie. Konzultácia je úplne bezplatná a nezáväzná. Začnime spolu!",
       keywords: ["bezplatná konzultácia", "30 minút", "online", "nezáväzná", "začnime spolu", "objednať", "stratégia"]
     },
     {
