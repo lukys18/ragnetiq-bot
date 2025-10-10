@@ -10,7 +10,7 @@
   }
 
   const iframe = document.createElement("iframe");
-  iframe.src = "https://ai-power2-0.vercel.app/"; // tvoje Vercel URL
+  iframe.src = "https://testovaci-bot.vercel.app"; // tvoje Vercel URL
   iframe.style.position = "fixed";
   iframe.style.bottom = "20px";
   iframe.style.right = "20px";
@@ -96,7 +96,7 @@
       // Pošle resize správu do iframe po animácii, aby sa layout správne prepočítal
       setTimeout(() => {
         if (iframe.contentWindow) {
-          iframe.contentWindow.postMessage({ type: "resize" }, "https://ai-power2-0.vercel.app");
+          iframe.contentWindow.postMessage({ type: "resize" }, "https://testovaci-bot.vercel.app");
         }
       }, 500);
     } else {
@@ -115,7 +115,7 @@
 
   // Počúva správy z iframe
   window.addEventListener("message", function(event) {
-    if (event.origin !== "https://ai-power2-0.vercel.app") return;
+    if (event.origin !== "https://testovaci-bot.vercel.app") return;
     
     if (event.data.type === "chatbot-opened") {
       isOpen = true;
