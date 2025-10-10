@@ -3,7 +3,7 @@
   window.marcelChatbotLoaded = true;
 
   // Vercel URL - ZMENIŤ LEN TU
-  const VERCEL_URL = "https://testovaci-bot.vercel.app";
+  const VERCEL_URL = "https://ragnetiq-bot.vercel.app";
 
   // Povolene domény
   const allowed = ["aipower.site", "localhost", "127.0.0.1"];
