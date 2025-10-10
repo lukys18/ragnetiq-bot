@@ -1,0 +1,1355 @@
+ <!DOCTYPE html>
+<html lang="sk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>AI POWER</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function(){
+      emailjs.init({
+        publicKey: "a6gl1J8IimvAROxcE",
+      });
+    })();
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+
+/* CSS Reset pre iframe konzistenciu */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --gradient-primary: linear-gradient(135deg, #00D9FF 0%, #7C3AED 100%);
+}
+
+/* Gradient hyperlink styles */
+.message.bot a,
+.message a {
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.message.bot a:hover,
+.message a:hover {
+  text-decoration: underline;
+  transform: scale(1.02);
+}
+
+/* Fallback pre staršie prehliadače */
+@supports not (-webkit-background-clip: text) {
+  .message.bot a,
+  .message a {
+    color: #00D9FF;
+    background: none;
+    -webkit-text-fill-color: initial;
+  }
+}
+
+/* Základné nastavenie pre iframe kompatibilitu */
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0 !important;
+  padding: 0 !important;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+body {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-size: 16px;
+}
+
+/* Speciálne pravidlá pre iframe režim */
+body.iframe-mode {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  font-size: 16px !important;
+}
+
+body.iframe-mode html {
+  margin: 0 !important;
+  padding: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  font-size: 16px !important;
+}
+
+/* Zabezpečenie presných fontov v iframe */
+body.iframe-mode #user-input {
+  font-size: 14px !important;
+}
+
+body.iframe-mode .user-name {
+  font-size: 16px !important;
+}
+
+body.iframe-mode .user-status {
+  font-size: 12px !important;
+}
+
+#chatbot-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 360px;
+  height: 100%;
+  max-height: 600px;
+  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              border-radius 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.3s ease;
+  z-index: 9999;
+  box-sizing: border-box;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Keď je v iframe, vyplní celý priestor */
+body.iframe-mode #chatbot-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+#chatbot-container.closed {
+  max-height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
+              height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              border-radius 0.6s cubic-bezier(0.23, 1, 0.32, 1),
+              box-shadow 0.3s ease;
+}
+
+/* V iframe režime - zatvorený stav vyplní celý kruhový iframe */
+body.iframe-mode #chatbot-container.closed {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  max-height: 100% !important;
+  border-radius: 50% !important;
+  border: none !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+#chatbot-container.closed #chatbot-header {
+  display: none;
+}
+
+#chatbot-container.closed #chatbot-header-closed {
+  display: block !important;
+  background: rgba(26, 26, 46, 0.9);
+  padding: 0;
+  cursor: pointer;
+  border: none;
+  backdrop-filter: blur(10px);
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  margin: 0 !important;
+}
+
+/* V iframe režime - header v zatvorenom stave */
+body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 50% !important;
+}
+
+#chatbot-container.closed #chatbot-header-closed:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+#chatbot-header-closed {
+  background: rgba(26, 26, 46, 0.8);
+  color: white;
+  padding: 0;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+#chatbot-header {
+  background: rgba(26, 26, 46, 0.8);
+  color: white;
+  padding: 16px 20px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  flex-shrink: 0;
+  min-height: 77px;
+  max-height: 77px;
+  height: 77px;
+  box-sizing: border-box;
+  line-height: 1;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  line-height: 1;
+}
+
+.avatar-wrapper {
+  position: relative;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+}
+
+.avatar-wrapper img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+}
+
+.status-indicator {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 12px;
+  height: 12px;
+  background: #10b981;
+  border-radius: 50%;
+  border: 2px solid #1a1a2e;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  line-height: 1;
+}
+
+.user-name {
+  font-weight: 600;
+  font-size: 16px !important;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+.user-status {
+  font-size: 12px !important;
+  color: #10b981;
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0;
+  padding: 0;
+}
+
+#chatbot-container.closed #chatbot-header {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+
+#toggle-icon {
+  font-size: 20px;
+  font-weight: 300;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              opacity 0.3s ease;
+  transform-origin: center;
+  will-change: transform;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+}
+
+#chatbot-container:not(.closed) #toggle-icon {
+  transform: scaleX(-1);
+}
+
+#chatbot-container.closed #toggle-icon {
+  transform: scaleX(1);
+}
+
+#chatbot-container.closed #chatbot-body {
+  display: none;
+}
+
+#chatbot-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  background: #0f0f23;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  margin: 0;
+  position: relative;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
+              transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  min-height: 0;
+  max-height: calc(100% - 77px);
+  overflow: hidden;
+}
+
+#chatbot-container.closed #chatbot-body {
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+#chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  min-height: 0;
+}
+
+#chat-messages::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+.message {
+  padding: 12px 16px;
+  border-radius: 18px;
+  max-width: 85%;
+  font-size: 14.4px;
+  line-height: 1.4;
+  position: relative;
+  margin: 4px 0;
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.message.user {
+  align-self: flex-end;
+  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  color: #ffffff;
+  position: relative;
+  z-index: 100;
+  border-radius: 18px 18px 4px 18px;
+  box-shadow: 0 2px 12px rgba(79, 70, 229, 0.3);
+}
+
+.message.bot {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e2e8f0;
+  position: relative;
+  z-index: 100;
+  border-radius: 18px 18px 18px 4px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#input-area {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  margin: 0;
+  padding: 16px 0 0 0;
+  flex-shrink: 0;
+  position: relative;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#user-input {
+  flex: 1;
+  resize: none;
+  height: 44px;
+  padding: 12px 16px;
+  font-size: 14px !important;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: 'Montserrat', sans-serif;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  outline: none;
+  transition: all 0.3s ease;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  line-height: 1.4;
+}
+
+#user-input::-webkit-scrollbar {
+  display: none; /* WebKit */
+}
+
+#user-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+#user-input:focus {
+  border-color: #4f46e5;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+}
+
+button {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+  height: 44px;
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button:hover {
+  background: #3730a3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+}
+
+/* Quick Reply buttony */
+.quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.quick-reply-btn {
+  background: transparent;
+  color: #00D9FF;
+  border: 1px solid #00D9FF;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: auto;
+  width: auto;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quick-reply-btn:hover {
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+}
+
+.quick-reply-btn:active {
+  transform: translateY(0);
+  background: rgba(0, 217, 255, 0.2);
+}
+
+/* Contact button - rovnaký štýl ako quick reply buttony */
+.contact-btn {
+  background: transparent;
+  color: #00D9FF;
+  border: 1px solid #00D9FF;
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.85em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  white-space: nowrap;
+  flex-shrink: 0;
+  height: auto;
+  width: auto;
+  min-height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}
+
+.contact-btn:hover {
+  background: rgba(0, 217, 255, 0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+  background: rgba(0, 217, 255, 0.2);
+}
+
+/* Responzívne štýly pre Quick Reply buttony */
+@media (max-width: 480px) {
+  .quick-reply-btn {
+    font-size: 0.8em;
+    padding: 6px 12px;
+    min-height: 32px;
+  }
+}
+
+/* Kontaktný formulár */
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px;
+  margin: 12px 0;
+  max-width: 100%;
+}
+
+.contact-form h4 {
+  margin: 0 0 12px 0;
+  color: #00D9FF;
+  font-size: 0.9em;
+  font-weight: 600;
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 4px;
+  color: #e2e8f0;
+  font-size: 0.8em;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.85em;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  resize: none;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #00D9FF;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.2);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.form-group textarea {
+  height: 60px;
+  min-height: 60px;
+  max-height: 120px;
+}
+
+.form-submit-btn {
+  background: linear-gradient(135deg, #00D9FF 0%, #7C3AED 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: auto;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-submit-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+}
+
+.form-submit-btn:active {
+  transform: translateY(0);
+}
+
+.form-submit-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Responzívne štýly pre formulár */
+@media (max-width: 480px) {
+  .contact-form {
+    padding: 12px;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* Zabráni zoomovaniu na iOS */
+  }
+}
+
+/* Responzívne štýly pre mobilné zariadenia */
+@media (max-width: 768px) {
+  #chatbot-container {
+    bottom: 10px;
+    right: 10px;
+    left: 10px;
+    width: auto;
+    max-width: calc(100vw - 20px);
+    height: auto;
+    max-height: 70vh;
+  }
+  
+  #chatbot-container.closed {
+    width: 60px;
+    height: 60px;
+    left: auto;
+    right: 10px;
+  }
+  
+  /* V iframe režime */
+  body.iframe-mode #chatbot-container {
+    position: absolute !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    margin: 0 !important;
+  }
+  
+  body.iframe-mode #chatbot-container.closed {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+  }
+  
+  #chatbot-header {
+    padding: 8px 16px;
+    font-size: 16px;
+    min-height: 65px;
+    max-height: 65px;
+    height: 65px;
+  }
+  
+  .avatar-wrapper {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .avatar-wrapper img {
+    height: 36px;
+    width: 36px;
+  }
+  
+  .user-name {
+    font-size: 15px;
+  }
+  
+  .user-status {
+    font-size: 11px;
+  }
+  
+  /* Desktop view v iframe - nemenia sa rozmery */
+  body:not(.iframe-mode) #chatbot-header {
+    font-size: 16px;
+  }
+  
+  body:not(.iframe-mode) .user-name {
+    font-size: 16px;
+  }
+  
+  body:not(.iframe-mode) .user-status {
+    font-size: 12px;
+  }
+  
+  #chatbot-body {
+    padding: 12px;
+    height: auto;
+    flex: 1;
+    min-height: 0;
+  }
+  
+  body.iframe-mode #chatbot-body {
+    height: auto;
+    flex: 1;
+    padding: 16px;
+    box-sizing: border-box;
+    margin: 0;
+    min-height: 0;
+  }
+  
+  #user-input {
+    height: 50px;
+    font-size: 16px !important; /* Zabráni zoomovaniu na iOS */
+  }
+  
+  .message {
+    max-width: 85%;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  #chatbot-container {
+    bottom: 5px;
+    right: 5px;
+    left: 5px;
+    max-width: calc(100vw - 10px);
+    height: auto;
+    max-height: 75vh;
+  }
+  
+  #chatbot-container.closed {
+    width: 60px;
+    height: 60px;
+    right: 5px;
+  }
+  
+  /* V iframe režime */
+  body.iframe-mode #chatbot-container {
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    top: 0 !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+  }
+  
+  body.iframe-mode #chatbot-container.closed {
+    width: 100% !important;
+    height: 100% !important;
+    border-radius: 50% !important;
+  }
+  
+  #chatbot-header {
+    padding: 6px 12px;
+    font-size: 16px;
+    min-height: 56px;
+    max-height: 56px;
+    height: 56px;
+  }
+  
+  .avatar-wrapper {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .avatar-wrapper img {
+    height: 32px;
+    width: 32px;
+  }
+  
+  .user-name {
+    font-size: 14px !important;
+  }
+  
+  .user-status {
+    font-size: 10px !important;
+  }
+  
+  #toggle-icon {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+  }
+  
+  #chatbot-body {
+    padding: 10px;
+    height: auto;
+    flex: 1;
+    min-height: 0;
+    max-height: calc(100% - 56px);
+  }
+  
+  body.iframe-mode #chatbot-body {
+    height: auto;
+    flex: 1;
+    min-height: 0;
+  }
+  
+  #user-input {
+    height: 45px;
+    padding: 8px 10px;
+    font-size: 16px !important;
+  }
+  
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .message {
+    padding: 8px 12px;
+    max-width: 90%;
+    font-size: 13.6px;
+  }
+}
+
+/* Landscape orientácia na mobiloch */
+@media (max-width: 768px) and (orientation: landscape) {
+  #chatbot-container {
+    height: auto;
+    max-height: 85vh;
+  }
+  
+  #chatbot-body {
+    height: calc(85vh - 80px);
+  }
+}
+
+/* Veľmi malé zariadenia */
+@media (max-width: 320px) {
+  #chatbot-container.closed {
+    width: 60px;
+    height: 60px;
+  }
+  
+  #chatbot-header {
+    font-size: 0.85em;
+  }
+  
+  #chatbot-header img {
+    height: 28px !important;
+  }
+}
+  </style>
+</head>
+<body>
+  <div id="chatbot-container" class="closed">
+    <div id="chatbot-header" onclick="toggleChatbot()">
+      <!-- Kompletný režim (otvorený) -->
+      <div class="user-info">
+        <div class="avatar-wrapper">
+          <img src="logo_aiPower-03-03.png" alt="AI Asistent">
+          <div class="status-indicator"></div>
+        </div>
+        <div class="user-details">
+          <div class="user-name">AI Asistent</div>
+          <div class="user-status">Online</div>
+        </div>
+      </div>
+      
+      <span id="toggle-icon">+</span>
+    </div>
+
+    <!-- Header pre zatvorený stav -->
+    <div id="chatbot-header-closed" onclick="toggleChatbot()" style="display: none;">
+      <img src="logo_aiPower-03-03.png" alt="AI Asistent" style="height:40px; width:40px; border-radius:50%; object-fit:cover;">
+    </div>
+
+    <div id="chatbot-body">
+      <div id="chat-messages">
+        <!-- Úvodná správa bude pridaná cez JavaScript -->
+      </div>
+      <div id="input-area">
+        <textarea id="user-input" placeholder="Napíšte správu..."></textarea>
+        <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  
+<script src="database.js"></script>
+<script src="rag-system.js"></script>
+
+  <script>
+    let chatHistory = [
+      {
+        role: "system",
+        content: "Si presný a spoľahlivý AI asistent firmy AI Power. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, poviedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: ROČNÉ predplatné €69/mesiac (€828 ročne, ušetríte 20%) alebo MESAČNÉ predplatné €79/mesiac - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní, nie týždne. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte (ako 'ukážeme demo' ak to nie je spomenuté). 6) Firma AI Power poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu."
+      }
+    ];
+
+    // Inicializácia RAG systému po načítaní databázy
+    let ragSystem = null;
+    document.addEventListener('DOMContentLoaded', function() {
+      if (window.aiPowerData && window.RAGSystem) {
+        ragSystem = new window.RAGSystem(window.aiPowerData.knowledgeBase);
+        console.log('RAG systém inicializovaný s', window.aiPowerData.knowledgeBase.length, 'záznamami');
+      }
+      
+      // Zobrazenie úvodnej správy
+      appendMessage("AI POWER", "Dobrý deň! Ako vám môžem pomôcť? 👋", "bot", false, false, false);
+      const quickRepliesDiv = document.createElement('div');
+      quickRepliesDiv.className = 'quick-replies';
+      quickRepliesDiv.innerHTML = `
+        <button class="quick-reply-btn" onclick="handleQuickReply('Koľko to stojí?')">Ceny</button>
+        <button class="quick-reply-btn" onclick="handleQuickReply('Kontakt')">Kontakt</button>
+        <button class="quick-reply-btn" onclick="handleQuickReply('Pracovné hodiny')">Otváracie hodiny</button>
+        <button class="quick-reply-btn" onclick="handleQuickReply('Rezervácia stretnutia')">Stretnutie</button>
+        <button class="quick-reply-btn" onclick="handleQuickReply('Kde sa nachádzate?')">Adresa</button>
+      `;
+      chatbox.appendChild(quickRepliesDiv);
+    });
+
+    const chatbox = document.getElementById("chat-messages");
+    const inputField = document.getElementById("user-input");
+
+    // Detekcia iframe a pridanie triedy
+    if (window.self !== window.top) {
+      document.body.classList.add('iframe-mode');
+    }
+
+    // Informuj parent, že je chatbot na začiatku zatvorený
+    if (window.parent !== window) {
+      window.parent.postMessage({ type: "chatbot-closed" }, "*");
+    }
+
+    // Listener pre resize správy z widgetu
+    window.addEventListener("message", function(event) {
+      if (event.data.type === "resize") {
+        // Donúti prehliadač prepočítať layout
+        window.dispatchEvent(new Event("resize"));
+      }
+    });
+
+    // Event listener pre Enter a Shift+Enter
+    inputField.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && !e.shiftKey) {
+        e.preventDefault(); // Zabráni štandardnému správaniu (nový riadok)
+        sendMessage(); // Odošle správu
+      }
+      // Shift+Enter vytvorí nový riadok (štandardné správanie textarea)
+    });
+
+    function toggleChatbot() {
+      const container = document.getElementById("chatbot-container");
+      const openHeader = document.getElementById("chatbot-header");
+      const closedHeader = document.getElementById("chatbot-header-closed");
+      const icon = document.getElementById("toggle-icon");
+      
+      container.classList.toggle("closed");
+      
+      if (container.classList.contains("closed")) {
+        // Zatvorený stav
+        openHeader.style.display = "none";
+        closedHeader.style.display = "block";
+        // Informuj parent o zatvorení
+        if (window.parent !== window) {
+          window.parent.postMessage({ type: "chatbot-closed" }, "*");
+        }
+      } else {
+        // Otvorený stav
+        openHeader.style.display = "flex";
+        closedHeader.style.display = "none";
+        icon.innerText = "−";
+        // Informuj parent o otvorení
+        if (window.parent !== window) {
+          window.parent.postMessage({ type: "chatbot-opened" }, "*");
+        }
+      }
+    }
+
+    function createContactForm() {
+      const formId = 'contact-form-' + Date.now(); // Unikátne ID pre každý formulár
+      return `
+        <div class="contact-form">
+          <h4>Pošlite nám správu</h4>
+          <form id="${formId}" onsubmit="handleContactSubmit(event, '${formId}')">
+            <div class="form-group">
+              <label for="${formId}-name">Meno *</label>
+              <input type="text" id="${formId}-name" name="from_name" placeholder="Vaše meno" required>
+            </div>
+            <div class="form-group">
+              <label for="${formId}-email">Email *</label>
+              <input type="email" id="${formId}-email" name="from_email" placeholder="vas@email.com" required>
+            </div>
+            <div class="form-group">
+              <label for="${formId}-message">Správa *</label>
+              <textarea id="${formId}-message" name="message" placeholder="Opíšte vašu otázku alebo požiadavku..." required></textarea>
+            </div>
+            <button type="submit" class="form-submit-btn" id="${formId}-submit">
+              Odoslať správu
+            </button>
+          </form>
+        </div>
+      `;
+    }
+
+    function handleContactSubmit(event, formId) {
+      event.preventDefault();
+      
+      // Získanie tlačidla a formulára
+      const submitBtn = document.getElementById(formId + '-submit');
+      const form = document.getElementById(formId);
+      
+      // Disable tlačidlo a zmena textu
+      submitBtn.disabled = true;
+      submitBtn.innerHTML = 'Odosielam...';
+      
+      // EmailJS configuration
+      emailjs.sendForm('service_1mgr3un', 'template_pfpr23k', '#' + formId)
+        .then(
+          (response) => {
+            console.log('SUCCESS!', response.status, response.text);
+            
+            // Úspešná správa
+            appendMessage("AI POWER", "🎉 **Ďakujeme!** Vaša správa bola úspešne odoslaná. Odpovieme vám čo najskôr.", "bot");
+            
+            // Skryť formulár po úspešnom odoslaní
+            const formContainer = form.closest('.contact-form').parentElement;
+            if (formContainer) {
+              formContainer.style.display = 'none';
+            }
+          },
+          (error) => {
+            console.log('FAILED...', error);
+            
+            // Chybová správa
+            appendMessage("AI POWER", "❌ **Ups!** Nastala chyba pri odosielaní správy. Skúste to prosím znovu alebo nás kontaktujte priamo na info@aipower.site", "bot");
+            
+            // Obnoviť tlačidlo
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = 'Odoslať správu';
+          }
+        );
+    }
+
+    function showContactForm(buttonElement) {
+      // Skry tlačidlo
+      buttonElement.style.display = 'none';
+      
+      // Vytvor a zobraz formulár
+      const contactFormDiv = document.createElement('div');
+      contactFormDiv.innerHTML = createContactForm();
+      
+      // Pridaj formulár za tlačidlo
+      buttonElement.parentNode.insertBefore(contactFormDiv, buttonElement.nextSibling);
+      
+      // Scroll na spodok
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function handleQuickReply(question) {
+      // Nastav otázku do input fieldu a odošli ju
+      inputField.value = question;
+      sendMessage();
+    }
+
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+   
+
+async function sendMessage() {
+  const message = inputField.value.trim();
+  if (!message) return;
+
+  appendMessage("Ty", message, "user");
+  inputField.value = "";
+
+  chatHistory.push({ role: "user", content: message });
+
+  // Normalizácia textu - odstránenie diakritiky a lowercase
+  const normalizedMessage = message
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // odstráni diakritiku
+
+  // Vždy používaj RAG systém pre odpovede
+  appendMessage("AI POWER", "Hľadám relevantné informácie...", "bot", true);
+
+  try {
+    await delay(800);
+
+    // RAG vyhľadávanie relevantného obsahu
+    let relevantContent = [];
+    let ragContext = '';
+    let sources = [];
+    let useRAG = false;
+
+    if (ragSystem) {
+      relevantContent = ragSystem.searchRelevantContent(message, 3);
+      if (relevantContent.length > 0) {
+        ragContext = ragSystem.buildContext(relevantContent);
+        sources = relevantContent.map(item => item.title);
+        useRAG = true;
+        console.log('Používam RAG s kontextom:', sources);
+      }
+    }
+
+    // API volanie s RAG kontextom
+    const response = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ 
+        messages: chatHistory,
+        useRAG: useRAG,
+        ragContext: ragContext,
+        sources: sources
+      })
+    });
+
+    if (!response.ok) {
+     throw new Error(`Chyba ${response.status}: ${response.statusText}`);
+    }
+
+    const data = await response.json();
+    let reply = data.choices?.[0]?.message?.content?.trim() || "Prepáč, neviem na to odpovedať.";
+
+    // Kontrola či odpoveď obsahuje "nemám presné informácie" alebo podobné frázy
+    const isInsufficientAnswer = reply.includes("nemám presné informácie") || 
+                                reply.includes("kontaktujte nás") ||
+                                reply.includes("neviem na to odpovedať") ||
+                                reply.includes("nemám dostatok informácií");
+
+    // Kontrola či odpoveď obsahuje kontaktné informácie
+    const isContactRelated = reply.includes("kontakt") || 
+                            reply.includes("telefón") || 
+                            reply.includes("email") ||
+                            reply.includes("info@aipower.site") ||
+                            reply.includes("+421") ||
+                            sources.some(source => source.toLowerCase().includes("kontakt"));
+
+    removeLastBotMessage();
+    appendMessage("AI POWER", reply, "bot", false, false, isInsufficientAnswer || isContactRelated);
+    chatHistory.push({ role: "assistant", content: reply });
+
+  } catch (error) {
+    console.error("Chyba:", error);
+    removeLastBotMessage();
+    
+    // Fallback pre lokálne testovanie
+    if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+      appendMessage("AI POWER", "Na túto otázku neviem dostatočne odpovedať.", "bot", false, false, true);
+    } else {
+      appendMessage("AI POWER", `Ups, nastala chyba: ${error.message}`, "bot");
+    }
+  }
+}
+
+
+
+
+
+
+    function appendMessage(sender, message, role, isTemp = false, showQuickReplies = false, showContactButton = false) {
+      const msgDiv = document.createElement("div");
+      msgDiv.classList.add("message", role);
+      if (isTemp) msgDiv.classList.add("temp");
+
+      // Spracovanie **text** na <strong>text</strong>
+      let formattedMessage = message.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+      
+      // Automatické vytvorenie hyperlinkov z Calendly URL (ak nie sú už hyperlinky)
+      formattedMessage = formattedMessage.replace(
+        /https:\/\/calendly\.com\/aipoweragency\/new-meeting\?month=2025-08(?![^<]*>)/g,
+        '<a href="https://calendly.com/aipoweragency/new-meeting?month=2025-08" target="_blank">🔗 REZERVOVAŤ KONZULTÁCIU</a>'
+      );
+      
+      // Backup - ak sa niektore URL nezachytili
+      formattedMessage = formattedMessage.replace(
+        /(https?:\/\/[^\s<]+)(?![^<]*>)/g,
+        '<a href="$1" target="_blank">$1</a>'
+      );
+
+      msgDiv.innerHTML = formattedMessage;
+      chatbox.appendChild(msgDiv);
+      
+      // Pridaj kontaktné tlačidlo ak je potrebné
+      if (role === 'bot' && showContactButton) {
+        const browserLang = navigator.language || navigator.userLanguage;
+        const isEnglishBrowser = browserLang.startsWith('en');
+        const buttonText = isEnglishBrowser ? "Send us a message" : "Pošli nám správu";
+        
+        const contactBtnDiv = document.createElement('div');
+        contactBtnDiv.innerHTML = `
+          <button class="contact-btn" onclick="showContactForm(this)">
+            ${buttonText}
+          </button>
+        `;
+        chatbox.appendChild(contactBtnDiv);
+      }
+      
+      // Pridaj Quick Reply buttony pod správu (nie do nej)
+      if (role === 'bot' && showQuickReplies) {
+        const quickRepliesDiv = document.createElement('div');
+        quickRepliesDiv.className = 'quick-replies';
+        quickRepliesDiv.innerHTML = `
+          <button class="quick-reply-btn" onclick="handleQuickReply('Koľko to stojí?')">Ceny</button>
+          <button class="quick-reply-btn" onclick="handleQuickReply('Kontakt')">Kontakt</button>
+          <button class="quick-reply-btn" onclick="handleQuickReply('Pracovné hodiny')">Otváracie hodiny</button>
+          <button class="quick-reply-btn" onclick="handleQuickReply('Rezervácia stretnutia')">Stretnutie</button>
+          <button class="quick-reply-btn" onclick="handleQuickReply('Kde sa nachádzate?')">Adresa</button>
+        `;
+        chatbox.appendChild(quickRepliesDiv);
+      }
+
+      chatbox.scrollTop = chatbox.scrollHeight;
+    }
+
+    function removeLastBotMessage() {
+      const tempMsg = chatbox.querySelector(".bot.temp");
+      if (tempMsg) chatbox.removeChild(tempMsg);
+    }
+
+
+
+
+
+
+
+    
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+{
+  "name": "chatbot-app",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vercel dev",
+    "test-rag": "echo 'Otvor rag-test.html v prehliadači pre testovanie RAG systému'"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
