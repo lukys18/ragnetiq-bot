@@ -43,7 +43,7 @@ window.aiPowerData = {
       id: "support-maintenance",
       category: "support",
       title: "Podpora a údržba zahrnutá v cene",
-      content: "V cene je zahrnuté: Email notifikácie pri nových správach, pravidelné aktualizácie obsahu (podľa dohody, stále zahrnuté v cene), email podpora s odpoveďou do 24 hodín. V prípade akýchkoľvek otázok alebo problémov nás kontaktujte na info@aipower.site alebo +421 904 603 171. Odpovieme vám do 24 hodín.",
+      content: "V cene je zahrnuté: Email notifikácie pri nových správach, pravidelné aktualizácie obsahu (podľa dohody, stále zahrnuté v cene), email podpora s odpoveďou do 24 hodín. V prípade akýchkoľvek otázok alebo problémov nás kontaktujte na info@ragnetiq.com alebo +421 904 603 171. Odpovieme vám do 24 hodín.",
       keywords: ["podpora", "údržba", "email notifikácie", "aktualizácie", "podľa dohody", "odpoveď do 24h", "zahrnuté v cene"]
     },
     {
@@ -64,21 +64,21 @@ window.aiPowerData = {
       id: "company-info",
       category: "company",
       title: "O spoločnosti Ragnetiq",
-      content: "Ragnetiq - AI chatboty pre slovenské firmy. Personalizóvané, bezpečné a jednoducho integrovateľné riešenia. Založená v roku 2025 Marcelom Lehockým. Sídlime v Bratislave, Slovensko. Naše motto: 'AI Chatbot, ktorý predáva kým vy spíte'. Špecializujeme sa výhradne na tvorbu AI chatbotov na mieru. Kontakt: info@aipower.site, +421 904 603 171, www.aipower.site",
+      content: "Ragnetiq - AI chatboty pre slovenské firmy. Personalizóvané, bezpečné a jednoducho integrovateľné riešenia. Založená v roku 2025 Marcelom Lehockým. Sídlime v Bratislave, Slovensko. Naše motto: 'AI Chatbot, ktorý predáva kým vy spíte'. Špecializujeme sa výhradne na tvorbu AI chatbotov na mieru. Kontakt: info@ragnetiq.com, +421 904 603 171, www.ragnetiq.com",
       keywords: ["o nás", "Ragnetiq", "slovenské firmy", "založená 2025", "Marcel Lehocky", "Bratislava", "personalizóvané", "bezpečné", "majiteľ", "zakladateľ"]
     },
     {
       id: "contact-info",
       category: "contact",
       title: "Kontaktné informácie",
-      content: "**Kontakt:** Bratislava, Slovensko | Email: info@aipower.site | Telefón: +421 904 603 171 | Web: www.aipower.site. **Máte otázky?** Napíšte nám a my sa vám ozveme do 24 hodín. Môžete nás kontaktovať emailom, telefónom alebo cez kontaktný formulár na webstránke. Odpovieme vám čo najskôr!",
-      keywords: ["kontakt", "+421 904 603 171", "info@aipower.site", "Bratislava", "24 hodín", "email", "telefón", "formulár"]
+      content: "**Kontakt:** Bratislava, Slovensko | Email: info@ragnetiq.com | Telefón: +421 904 603 171 | Web: www.ragnetiq.com. **Máte otázky?** Napíšte nám a my sa vám ozveme do 24 hodín. Môžete nás kontaktovať emailom, telefónom alebo cez kontaktný formulár na webstránke. Odpovieme vám čo najskôr!",
+      keywords: ["kontakt", "+421 904 603 171", "info@ragnetiq.com", "Bratislava", "24 hodín", "email", "telefón", "formulár"]
     },
     {
       id: "location-address",
       category: "contact",
       title: "Adresa a lokácia",
-      content: "**Naša adresa:** Bratislava, Slovensko. Sme slovenská firma sídliaca v hlavnom meste. Pre presné stretnutia a online konzultácie nás kontaktujte na +421 904 603 171 alebo info@aipower.site.",
+      content: "**Naša adresa:** Bratislava, Slovensko. Sme slovenská firma sídliaca v hlavnom meste. Pre presné stretnutia a online konzultácie nás kontaktujte na +421 904 603 171 alebo info@ragnetiq.com.",
       keywords: ["adresa", "lokácia", "kde", "kde sa nachádzate", "kde sídlite", "kde ste", "poloha", "mapa", "location", "Bratislava", "slovensko"]
     },
     {

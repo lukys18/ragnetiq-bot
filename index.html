@@ -200,7 +200,7 @@
             console.log('FAILED...', error);
             
             // Chybová správa
-            appendMessage("RAGNETIQ", "❌ **Ups!** Nastala chyba pri odosielaní správy. Skúste to prosím znovu alebo nás kontaktujte priamo na info@aipower.site", "bot");
+            appendMessage("RAGNETIQ", "❌ **Ups!** Nastala chyba pri odosielaní správy. Skúste to prosím znovu alebo nás kontaktujte priamo na info@ragnetiq.com", "bot");
             
             // Obnoviť tlačidlo
             submitBtn.disabled = false;
@@ -304,7 +304,7 @@ async function sendMessage() {
     const isContactRelated = reply.includes("kontakt") || 
                             reply.includes("telefón") || 
                             reply.includes("email") ||
-                            reply.includes("info@aipower.site") ||
+                            reply.includes("info@ragnetiq.com") ||
                             reply.includes("+421") ||
                             sources.some(source => source.toLowerCase().includes("kontakt"));
 
