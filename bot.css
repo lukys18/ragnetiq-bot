@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&display=swap');
 
 /* CSS Reset pre iframe konzistenciu */
 * {
@@ -9,36 +9,31 @@
 }
 
 :root {
-  --gradient-primary: linear-gradient(135deg, #00D9FF 0%, #7C3AED 100%);
+  --primary-color: #401dbf;
+  --primary-hover: #5028d9;
+  --background-dark: #0a0a0a;
+  --background-lighter: #1a1a1a;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
 }
 
-/* Gradient hyperlink styles */
+/* Clean hyperlink styles */
 .message.bot a,
 .message a {
-  background: var(--gradient-primary);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--primary-color);
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 600;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
+  border-bottom: 1px solid var(--primary-color);
 }
 
 .message.bot a:hover,
 .message a:hover {
-  text-decoration: underline;
-  transform: scale(1.02);
-}
-
-/* Fallback pre staršie prehliadače */
-@supports not (-webkit-background-clip: text) {
-  .message.bot a,
-  .message a {
-    color: #00D9FF;
-    background: none;
-    -webkit-text-fill-color: initial;
-  }
+  color: var(--primary-hover);
+  border-bottom-color: var(--primary-hover);
 }
 
 /* Základné nastavenie pre iframe kompatibilitu */
@@ -54,7 +49,7 @@ html {
 body {
   margin: 0 !important;
   padding: 0 !important;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Manrope', sans-serif;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -106,9 +101,9 @@ body.iframe-mode .user-status {
   width: 360px;
   height: 100%;
   max-height: 600px;
-  background: linear-gradient(145deg, #1a1a2e 0%, #16213e 100%);
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: var(--background-dark);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(64, 29, 191, 0.3), 0 0 0 1px var(--glass-border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -120,7 +115,8 @@ body.iframe-mode .user-status {
   z-index: 9999;
   box-sizing: border-box;
   border: none;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Manrope', sans-serif;
+  backdrop-filter: blur(20px);
 }
 
 /* Keď je v iframe, vyplní celý priestor */
@@ -141,7 +137,7 @@ body.iframe-mode #chatbot-container {
   max-height: 60px;
   width: 60px;
   border-radius: 50%;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 8px 32px rgba(64, 29, 191, 0.4), 0 0 0 1px var(--glass-border);
   transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1), 
               height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
               max-height 0.6s cubic-bezier(0.23, 1, 0.32, 1),
@@ -173,11 +169,11 @@ body.iframe-mode #chatbot-container.closed {
 
 #chatbot-container.closed #chatbot-header-closed {
   display: block !important;
-  background: rgba(26, 26, 46, 0.9);
+  background: var(--glass-bg);
   padding: 0;
   cursor: pointer;
-  border: none;
-  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
   height: 60px;
   width: 60px;
   border-radius: 50%;
@@ -205,36 +201,36 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
 }
 
 #chatbot-header-closed {
-  background: rgba(26, 26, 46, 0.8);
+  background: var(--glass-bg);
   color: white;
   padding: 0;
   cursor: pointer;
   font-weight: 500;
   font-size: 1em;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
 }
 
 #chatbot-header {
-  background: rgba(26, 26, 46, 0.8);
+  background: var(--glass-bg);
   color: white;
-  padding: 16px 20px;
+  padding: 20px 24px;
   cursor: pointer;
   font-weight: 500;
   font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--glass-border);
+  backdrop-filter: blur(20px);
   opacity: 1;
   transform: translateY(0);
   transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
               transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   flex-shrink: 0;
-  min-height: 77px;
-  max-height: 77px;
-  height: 77px;
+  min-height: 80px;
+  max-height: 80px;
+  height: 80px;
   box-sizing: border-box;
   line-height: 1;
 }
@@ -265,11 +261,12 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
   position: absolute;
   bottom: 2px;
   right: 2px;
-  width: 12px;
-  height: 12px;
-  background: #10b981;
+  width: 10px;
+  height: 10px;
+  background: var(--primary-color);
   border-radius: 50%;
-  border: 2px solid #1a1a2e;
+  border: 2px solid var(--background-dark);
+  box-shadow: 0 0 8px var(--primary-color);
 }
 
 .user-details {
@@ -281,16 +278,17 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
 
 .user-name {
   font-weight: 600;
-  font-size: 16px !important;
-  color: #ffffff;
+  font-size: 15px !important;
+  color: var(--text-primary);
   line-height: 1.2;
   margin: 0;
   padding: 0;
+  letter-spacing: -0.01em;
 }
 
 .user-status {
   font-size: 12px !important;
-  color: #10b981;
+  color: var(--text-secondary);
   font-weight: 500;
   line-height: 1.2;
   margin: 0;
@@ -332,10 +330,10 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
 }
 
 #chatbot-body {
-  padding: 16px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  background: #0f0f23;
+  background: var(--background-dark);
   flex: 1 1 auto;
   box-sizing: border-box;
   margin: 0;
@@ -345,7 +343,7 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
   transition: opacity 0.4s cubic-bezier(0.23, 1, 0.32, 1),
               transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
   min-height: 0;
-  max-height: calc(100% - 77px);
+  max-height: calc(100% - 80px);
   overflow: hidden;
 }
 
@@ -373,13 +371,13 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
 }
 
 .message {
-  padding: 12px 16px;
-  border-radius: 18px;
+  padding: 14px 18px;
+  border-radius: 16px;
   max-width: 85%;
-  font-size: 14.4px;
-  line-height: 1.4;
+  font-size: 14px;
+  line-height: 1.5;
   position: relative;
-  margin: 4px 0;
+  margin: 6px 0;
   word-wrap: break-word;
   word-break: break-word;
   overflow-wrap: break-word;
@@ -388,22 +386,23 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
 
 .message.user {
   align-self: flex-end;
-  background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+  background: var(--primary-color);
   color: #ffffff;
   position: relative;
   z-index: 100;
-  border-radius: 18px 18px 4px 18px;
-  box-shadow: 0 2px 12px rgba(79, 70, 229, 0.3);
+  border-radius: 16px 16px 4px 16px;
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 .message.bot {
   align-self: flex-start;
-  background: rgba(255, 255, 255, 0.08);
-  color: #e2e8f0;
+  background: var(--glass-bg);
+  color: var(--text-primary);
   position: relative;
   z-index: 100;
-  border-radius: 18px 18px 18px 4px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px 16px 16px 4px;
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
 }
 
 #input-area {
@@ -411,29 +410,30 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
   flex-direction: row;
   gap: 12px;
   margin: 0;
-  padding: 16px 0 0 0;
+  padding: 20px 0 0 0;
   flex-shrink: 0;
   position: relative;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid var(--glass-border);
 }
 
 #user-input {
   flex: 1;
   resize: none;
-  height: 44px;
-  padding: 12px 16px;
+  height: 48px;
+  padding: 14px 18px;
   font-size: 14px !important;
-  border-radius: 22px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  font-family: 'Montserrat', sans-serif;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  font-family: 'Manrope', sans-serif;
   box-sizing: border-box;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
+  background: var(--glass-bg);
+  color: var(--text-primary);
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* Internet Explorer 10+ */
-  line-height: 1.4;
+  line-height: 1.5;
+  backdrop-filter: blur(10px);
 }
 
 #user-input::-webkit-scrollbar {
@@ -441,43 +441,43 @@ body.iframe-mode #chatbot-container.closed #chatbot-header-closed {
 }
 
 #user-input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
 }
 
 #user-input:focus {
-  border-color: #4f46e5;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2);
+  border-color: var(--primary-color);
+  background: var(--glass-bg);
+  box-shadow: 0 0 0 3px rgba(64, 29, 191, 0.15);
 }
 
 button {
-  background: #4f46e5;
+  background: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 50%;
+  border-radius: 12px;
   padding: 0;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-  height: 44px;
-  width: 44px;
+  font-family: 'Manrope', sans-serif;
+  height: 48px;
+  width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 button:hover {
-  background: #3730a3;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(64, 29, 191, 0.3);
 }
 
 button:active {
   transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(79, 70, 229, 0.3);
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 /* Quick Reply buttony */
@@ -485,21 +485,21 @@ button:active {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin: 8px 0;
+  margin: 10px 0;
   padding: 0;
 }
 
 .quick-reply-btn {
-  background: transparent;
-  color: #00D9FF;
-  border: 1px solid #00D9FF;
-  border-radius: 20px;
-  padding: 8px 16px;
-  font-size: 0.85em;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+  font-family: 'Manrope', sans-serif;
   white-space: nowrap;
   flex-shrink: 0;
   height: auto;
@@ -508,51 +508,55 @@ button:active {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  backdrop-filter: blur(10px);
 }
 
 .quick-reply-btn:hover {
-  background: rgba(0, 217, 255, 0.1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 .quick-reply-btn:active {
   transform: translateY(0);
-  background: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 2px 8px rgba(64, 29, 191, 0.2);
 }
 
-/* Contact button - rovnaký štýl ako quick reply buttony */
+/* Contact button - prémiový štýl */
 .contact-btn {
-  background: transparent;
-  color: #00D9FF;
-  border: 1px solid #00D9FF;
-  border-radius: 20px;
-  padding: 8px 16px;
-  font-size: 0.85em;
-  font-weight: 500;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  font-size: 13px;
+  font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+  font-family: 'Manrope', sans-serif;
   white-space: nowrap;
   flex-shrink: 0;
   height: auto;
   width: auto;
-  min-height: 36px;
+  min-height: 40px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 8px 0;
+  margin: 10px 0;
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 .contact-btn:hover {
-  background: rgba(0, 217, 255, 0.1);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.2);
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(64, 29, 191, 0.35);
 }
 
 .contact-btn:active {
   transform: translateY(0);
-  background: rgba(0, 217, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 /* Responzívne štýly pre Quick Reply buttony - IBA pre NON-iframe */
@@ -566,19 +570,21 @@ button:active {
 
 /* Kontaktný formulár */
 .contact-form {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  padding: 16px;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 20px;
   margin: 12px 0;
   max-width: 100%;
+  backdrop-filter: blur(10px);
 }
 
 .contact-form h4 {
-  margin: 0 0 12px 0;
-  color: #00D9FF;
-  font-size: 0.9em;
+  margin: 0 0 16px 0;
+  color: var(--text-primary);
+  font-size: 15px;
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
 .form-group {
@@ -587,38 +593,39 @@ button:active {
 
 .form-group label {
   display: block;
-  margin-bottom: 4px;
-  color: #e2e8f0;
-  font-size: 0.8em;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+  font-size: 13px;
   font-weight: 500;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 8px 12px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #ffffff;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 0.85em;
+  padding: 12px 14px;
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  background: var(--glass-bg);
+  color: var(--text-primary);
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   resize: none;
+  backdrop-filter: blur(10px);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #00D9FF;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 0 0 2px rgba(0, 217, 255, 0.2);
+  border-color: var(--primary-color);
+  background: var(--glass-bg);
+  box-shadow: 0 0 0 3px rgba(64, 29, 191, 0.15);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--text-secondary);
 }
 
 .form-group textarea {
@@ -628,37 +635,41 @@ button:active {
 }
 
 .form-submit-btn {
-  background: linear-gradient(135deg, #00D9FF 0%, #7C3AED 100%);
+  background: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 0.85em;
+  border-radius: 10px;
+  padding: 14px 24px;
+  font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s ease;
+  font-family: 'Manrope', sans-serif;
   width: 100%;
   height: auto;
-  min-height: 36px;
+  min-height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 .form-submit-btn:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+  background: var(--primary-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(64, 29, 191, 0.35);
 }
 
 .form-submit-btn:active {
   transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(64, 29, 191, 0.25);
 }
 
 .form-submit-btn:disabled {
-  opacity: 0.6;
+  opacity: 0.5;
   cursor: not-allowed;
   transform: none;
+  box-shadow: none;
 }
 
 /* Responzívne štýly pre formulár - IBA pre NON-iframe */
@@ -715,11 +726,11 @@ button:active {
   
   /* Mobilné štýly IBA pre NON-iframe */
   body:not(.iframe-mode) #chatbot-header {
-    padding: 8px 16px;
-    font-size: 16px;
-    min-height: 65px;
-    max-height: 65px;
-    height: 65px;
+    padding: 16px 20px;
+    font-size: 15px;
+    min-height: 72px;
+    max-height: 72px;
+    height: 72px;
   }
   
   body:not(.iframe-mode) .avatar-wrapper {
@@ -741,7 +752,7 @@ button:active {
   }
   
   body:not(.iframe-mode) #chatbot-body {
-    padding: 12px;
+    padding: 16px;
     height: auto;
     flex: 1;
     min-height: 0;
@@ -803,21 +814,21 @@ button:active {
   
   /* Mobilné štýly IBA pre NON-iframe */
   body:not(.iframe-mode) #chatbot-header {
-    padding: 6px 12px;
-    font-size: 16px;
-    min-height: 56px;
-    max-height: 56px;
-    height: 56px;
+    padding: 14px 18px;
+    font-size: 14px;
+    min-height: 64px;
+    max-height: 64px;
+    height: 64px;
   }
   
   body:not(.iframe-mode) .avatar-wrapper {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
   }
   
   body:not(.iframe-mode) .avatar-wrapper img {
-    height: 32px;
-    width: 32px;
+    height: 36px;
+    width: 36px;
   }
   
   body:not(.iframe-mode) .user-name {
@@ -825,7 +836,7 @@ button:active {
   }
   
   body:not(.iframe-mode) .user-status {
-    font-size: 10px !important;
+    font-size: 11px !important;
   }
   
   body:not(.iframe-mode) #toggle-icon {
@@ -835,28 +846,29 @@ button:active {
   }
   
   body:not(.iframe-mode) #chatbot-body {
-    padding: 10px;
+    padding: 14px;
     height: auto;
     flex: 1;
     min-height: 0;
-    max-height: calc(100% - 56px);
+    max-height: calc(100% - 64px);
   }
   
   body:not(.iframe-mode) #user-input {
-    height: 45px;
-    padding: 8px 10px;
+    height: 46px;
+    padding: 12px 14px;
     font-size: 16px !important;
   }
   
   body:not(.iframe-mode) button {
-    padding: 10px;
-    font-size: 14px;
+    height: 46px;
+    width: 46px;
+    font-size: 15px;
   }
   
   body:not(.iframe-mode) .message {
-    padding: 8px 12px;
-    max-width: 90%;
-    font-size: 13.6px;
+    padding: 12px 16px;
+    max-width: 88%;
+    font-size: 14px;
   }
   
   /* Iframe-mode ZACHOVÁ desktop veľkosti */
