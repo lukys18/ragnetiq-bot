@@ -246,8 +246,8 @@ async function sendMessage() {
   // Pridaj používateľskú správu do histórie
   chatHistory.push({ role: "user", content: message });
 
-  // Vždy používaj RAG systém pre odpovede
-  appendMessage("RAGNETIQ", "Hľadám relevantné informácie...", "bot", true);
+  // Zobraz typing animáciu
+  appendMessage("RAGNETIQ", "typing", "bot", true);
 
   try {
     await delay(800);
@@ -333,29 +333,35 @@ async function sendMessage() {
       msgDiv.classList.add("message", role);
       if (isTemp) msgDiv.classList.add("temp");
 
-      // Spracovanie **text** na <strong>text</strong>
-      let formattedMessage = message.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
-      
-      // Automatické vytvorenie hyperlinkov z Calendly URL
-      // Basic/Pro link
-      formattedMessage = formattedMessage.replace(
-        /https:\/\/calendly\.com\/ragnetiq\/30min(?![^<]*>)/g,
-        '<a href="https://calendly.com/ragnetiq/30min" target="_blank">🔗 REZERVOVAŤ KONZULTÁCIU</a>'
-      );
-      
-      // Enterprise link
-      formattedMessage = formattedMessage.replace(
-        /https:\/\/calendly\.com\/ragnetiq\/30-minutovy-rozhovor-clone(?![^<]*>)/g,
-        '<a href="https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone" target="_blank">🔗 REZERVOVAŤ ENTERPRISE KONZULTÁCIU</a>'
-      );
-      
-      // Backup - ak sa niektore URL nezachytili
-      formattedMessage = formattedMessage.replace(
-        /(https?:\/\/[^\s<]+)(?![^<]*>)/g,
-        '<a href="$1" target="_blank">$1</a>'
-      );
+      // Ak je to typing animácia, pridaj špeciálny obsah
+      if (isTemp && message === "typing") {
+        msgDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+      } else {
+        // Spracovanie **text** na <strong>text</strong>
+        let formattedMessage = message.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+        
+        // Automatické vytvorenie hyperlinkov z Calendly URL
+        // Basic/Pro link
+        formattedMessage = formattedMessage.replace(
+          /https:\/\/calendly\.com\/ragnetiq\/30min(?![^<]*>)/g,
+          '<a href="https://calendly.com/ragnetiq/30min" target="_blank">🔗 REZERVOVAŤ KONZULTÁCIU</a>'
+        );
+        
+        // Enterprise link
+        formattedMessage = formattedMessage.replace(
+          /https:\/\/calendly\.com\/ragnetiq\/30-minutovy-rozhovor-clone(?![^<]*>)/g,
+          '<a href="https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone" target="_blank">🔗 REZERVOVAŤ ENTERPRISE KONZULTÁCIU</a>'
+        );
+        
+        // Backup - ak sa niektore URL nezachytili
+        formattedMessage = formattedMessage.replace(
+          /(https?:\/\/[^\s<]+)(?![^<]*>)/g,
+          '<a href="$1" target="_blank">$1</a>'
+        );
 
-      msgDiv.innerHTML = formattedMessage;
+        msgDiv.innerHTML = formattedMessage;
+      }
+
       chatbox.appendChild(msgDiv);
       
       // Pridaj kontaktné tlačidlo ak je potrebné
