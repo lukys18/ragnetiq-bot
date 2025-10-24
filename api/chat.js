@@ -26,8 +26,11 @@ export default async function handler(req, res) {
           role: 'system',
           content: `Relevantný kontext z databázy:\n${ragContext}\n\nPoužite tento kontext na zodpovedanie nadchádzajúcej otázky používateľa.`
         });
+        console.log(`RAG kontext vložený pred správu na indexe ${lastUserIndex}. Zdroje:`, sources);
       }
     }
+
+    console.log(`Posielam ${enhancedMessages.length} správ do API (vrátane ${useRAG ? 'RAG kontextu' : 'bez RAG'})`);
 
     const response = await fetch("https://api.deepseek.com/chat/completions", {
       method: "POST",

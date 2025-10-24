@@ -60,7 +60,7 @@
     let chatHistory = [
       {
         role: "system",
-        content: "Si presný a spoľahlivý AI asistent firmy Ragnetiq. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, povedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: BASIC €99/mesiac, PRO €199/mesiac (odporúčané), ENTERPRISE podľa dohody - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní od začiatku po spustenie. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte. 6) Firma Ragnetiq poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu. 8) Pri otázkach o cenách vždy uveď všetky 3 balíky a odporúč PRO ako najlepší pomer cena/výkon. Ak je povolený RAG, relevantný kontext z databázy bude vložený ako samostatná system správa pred poslednou používateľskou správou — použite ho pri odpovedaní."
+        content: "Si presný a spoľahlivý AI asistent firmy Ragnetiq. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, povedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: BASIC €99/mesiac, PRO €199/mesiac (odporúčané), ENTERPRISE podľa dohody - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní od začiatku po spustenie. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte. 6) Firma Ragnetiq poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu. 8) Pri otázkach o cenách vždy uveď všetky 3 balíky a odporúč PRO ako najlepší pomer cena/výkon. 9) PAMÄTAJ SI celú konverzáciu a odkazuj sa na predchádzajúce otázky používateľa. 10) Kontext z databázy dostaneš ako samostatnú system správu - použi ho pri odpovedaní."
       }
     ];
 
@@ -243,13 +243,8 @@ async function sendMessage() {
   appendMessage("Ty", message, "user");
   inputField.value = "";
 
+  // Pridaj používateľskú správu do histórie
   chatHistory.push({ role: "user", content: message });
-
-  // Normalizácia textu - odstránenie diakritiky a lowercase
-  const normalizedMessage = message
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, ''); // odstráni diakritiku
 
   // Vždy používaj RAG systém pre odpovede
   appendMessage("RAGNETIQ", "Hľadám relevantné informácie...", "bot", true);
@@ -273,14 +268,15 @@ async function sendMessage() {
       }
     }
 
-    // API volanie s RAG kontextom
+    // API volanie s kompletnou históriou a RAG kontextom
+    // RAG kontext bude vložený na serveri ako system správa pred poslednú user správu
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ 
-        messages: chatHistory,
+        messages: chatHistory, // Celá história konverzácie
         useRAG: useRAG,
         ragContext: ragContext,
         sources: sources
@@ -310,6 +306,8 @@ async function sendMessage() {
 
     removeLastBotMessage();
     appendMessage("RAGNETIQ", reply, "bot", false, false, isInsufficientAnswer || isContactRelated);
+    
+    // Pridaj odpoveď asistenta do histórie pre budúcu pamäť
     chatHistory.push({ role: "assistant", content: reply });
 
   } catch (error) {
