@@ -6,6 +6,8 @@
     "dev": "vercel dev",
     "test-rag": "echo 'Otvor rag-test.html v prehliadači pre testovanie RAG systému'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@supabase/supabase-js": "^2.39.0"
+  },
   "devDependencies": {}
 }
