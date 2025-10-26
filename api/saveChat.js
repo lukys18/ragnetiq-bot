@@ -8,8 +8,13 @@
  * {
  *   userMessage: string,
  *   botResponse: string,
- *   website: string (optional),
- *   ipAddress: string (optional)
+ *   website: string,
+ *   ipAddress: string (optional),
+ *   sessionId: string (UUID),
+ *   messageIndex: number,
+ *   timeToRespond: number (milliseconds),
+ *   category: string (optional),
+ *   geoLocationCity: string (optional)
  * }
  */
 
@@ -42,13 +47,23 @@ export default async function handler(req, res) {
     const supabase = createClient(supabaseUrl, supabaseKey);
 
     // Extract data from request body
-    const { userMessage, botResponse, website, ipAddress } = req.body;
+    const { 
+      userMessage, 
+      botResponse, 
+      website, 
+      ipAddress,
+      sessionId,
+      messageIndex,
+      timeToRespond,
+      category,
+      geoLocationCity
+    } = req.body;
 
     // Validate required fields
-    if (!userMessage || !botResponse) {
+    if (!userMessage || !website || !sessionId) {
       return res.status(400).json({ 
         error: 'Bad request',
-        message: 'userMessage and botResponse are required' 
+        message: 'userMessage, website, and sessionId are required' 
       });
     }
 
@@ -57,25 +72,23 @@ export default async function handler(req, res) {
                    req.headers['x-forwarded-for']?.split(',')[0].trim() ||
                    req.headers['x-real-ip'] ||
                    req.socket?.remoteAddress ||
-                   'unknown';
+                   null;
 
     // Prepare data for insertion
     const chatData = {
       user_message: userMessage,
-      bot_response: botResponse,
-      website: website || 'unknown',
+      bot_response: botResponse || null,
+      website: website,
       user_ip: userIp,
+      session_id: sessionId,
+      message_index: messageIndex || null,
+      time_to_respond: timeToRespond || null,
+      category: category || null,
+      geo_location_city: geoLocationCity || null,
       created_at: new Date().toISOString()
     };
 
     // Insert chat data into Supabase
-    // Note: Make sure you have a table named 'chat_logs' with columns:
-    // - id (BIGSERIAL, primary key)
-    // - user_message (TEXT)
-    // - bot_response (TEXT)
-    // - website (VARCHAR(255))
-    // - user_ip (VARCHAR(45))
-    // - created_at (TIMESTAMP WITH TIME ZONE)
     const { data, error } = await supabase
       .from('chat_logs')
       .insert([chatData])

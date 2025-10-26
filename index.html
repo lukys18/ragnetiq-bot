@@ -64,9 +64,37 @@
       }
     ];
 
+    // Session management
+    let sessionId = null;
+    let messageIndex = 0;
+
+    // Generate or retrieve session ID
+    function getSessionId() {
+      if (!sessionId) {
+        // Check if session exists in sessionStorage
+        sessionId = sessionStorage.getItem('ragnetiq_session_id');
+        if (!sessionId) {
+          // Generate new UUID for session
+          sessionId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            const r = Math.random() * 16 | 0;
+            const v = c == 'x' ? r : (r & 0x3 | 0x8);
+            return v.toString(16);
+          });
+          sessionStorage.setItem('ragnetiq_session_id', sessionId);
+          console.log('🆔 New session created:', sessionId);
+        } else {
+          console.log('🔄 Existing session resumed:', sessionId);
+        }
+      }
+      return sessionId;
+    }
+
     // Inicializácia RAG systému po načítaní databázy
     let ragSystem = null;
     document.addEventListener('DOMContentLoaded', function() {
+      // Initialize session
+      getSessionId();
+      
       if (window.aiPowerData && window.RAGSystem) {
         ragSystem = new window.RAGSystem(window.aiPowerData.knowledgeBase);
         console.log('RAG systém inicializovaný s', window.aiPowerData.knowledgeBase.length, 'záznamami');
@@ -243,6 +271,13 @@ async function sendMessage() {
   appendMessage("Ty", message, "user");
   inputField.value = "";
 
+  // Increment message index
+  messageIndex++;
+  const currentMessageIndex = messageIndex;
+  
+  // Start timer for response time
+  const startTime = Date.now();
+
   // Pridaj používateľskú správu do histórie
   chatHistory.push({ role: "user", content: message });
 
@@ -290,6 +325,12 @@ async function sendMessage() {
     const data = await response.json();
     let reply = data.choices?.[0]?.message?.content?.trim() || "Prepáč, neviem na to odpovedať.";
 
+    // Calculate response time
+    const timeToRespond = Date.now() - startTime;
+    
+    // Determine category based on keywords in user message
+    const category = categorizeMessage(message);
+
     // Kontrola či odpoveď obsahuje "nemám presné informácie" alebo podobné frázy
     const isInsufficientAnswer = reply.includes("nemám presné informácie") || 
                                 reply.includes("kontaktujte nás") ||
@@ -311,10 +352,10 @@ async function sendMessage() {
     chatHistory.push({ role: "assistant", content: reply });
 
     // ============================================================
-    // AUTOMATIC CHAT SAVING TO VERCEL API
+    // AUTOMATIC CHAT SAVING TO VERCEL API WITH METRICS
     // This sends every conversation to your Vercel database endpoint
     // ============================================================
-    saveChatToAPI(message, reply);
+    saveChatToAPI(message, reply, currentMessageIndex, timeToRespond, category);
 
   } catch (error) {
     console.error("Chyba:", error);
@@ -330,22 +371,75 @@ async function sendMessage() {
 }
 
 /**
- * Saves chat interaction to Vercel API endpoint
+ * Categorizes user message based on keywords
+ * @param {string} message - The user's message
+ * @returns {string} - Category name
+ */
+function categorizeMessage(message) {
+  const lowerMsg = message.toLowerCase();
+  
+  if (lowerMsg.includes('cena') || lowerMsg.includes('koľko') || lowerMsg.includes('stojí') || 
+      lowerMsg.includes('cenník') || lowerMsg.includes('balík') || lowerMsg.includes('€')) {
+    return 'ceny';
+  }
+  if (lowerMsg.includes('kontakt') || lowerMsg.includes('email') || lowerMsg.includes('telefón') || 
+      lowerMsg.includes('stretnutie') || lowerMsg.includes('konzultácia') || lowerMsg.includes('rezervácia')) {
+    return 'kontakt';
+  }
+  if (lowerMsg.includes('chatbot') || lowerMsg.includes('produkt') || lowerMsg.includes('funkci') || 
+      lowerMsg.includes('feature') || lowerMsg.includes('čo ponúka')) {
+    return 'produkty';
+  }
+  if (lowerMsg.includes('ako dlho') || lowerMsg.includes('proces') || lowerMsg.includes('trvá') || 
+      lowerMsg.includes('kroky') || lowerMsg.includes('implementácia')) {
+    return 'proces';
+  }
+  if (lowerMsg.includes('problém') || lowerMsg.includes('nefunguje') || lowerMsg.includes('chyba') || 
+      lowerMsg.includes('pomoc') || lowerMsg.includes('podpora')) {
+    return 'podpora';
+  }
+  
+  return 'všeobecné';
+}
+
+/**
+ * Saves chat interaction to Vercel API endpoint with enhanced metrics
  * @param {string} userMessage - The user's message
  * @param {string} botResponse - The bot's response
+ * @param {number} messageIndex - Index of message in session
+ * @param {number} timeToRespond - Response time in milliseconds
+ * @param {string} category - Message category
  */
-async function saveChatToAPI(userMessage, botResponse) {
+async function saveChatToAPI(userMessage, botResponse, messageIndex, timeToRespond, category) {
   try {
     // Get the current website's hostname
     const website = window.location.hostname;
     
-    // Get user's IP address from a public API
-    let ipAddress = 'unknown';
+    // Get session ID
+    const currentSessionId = getSessionId();
+    
+    // Get user's IP address and geolocation
+    let ipAddress = null;
+    let geoLocationCity = null;
+    
     try {
+      // Get IP address
       const ipResponse = await fetch('https://api.ipify.org?format=json');
       if (ipResponse.ok) {
         const ipData = await ipResponse.json();
         ipAddress = ipData.ip;
+        
+        // Get geolocation based on IP
+        try {
+          const geoResponse = await fetch(`https://ipapi.co/${ipAddress}/json/`);
+          if (geoResponse.ok) {
+            const geoData = await geoResponse.json();
+            geoLocationCity = geoData.city || null;
+            console.log('📍 Location detected:', geoLocationCity);
+          }
+        } catch (geoError) {
+          console.warn('Could not fetch geolocation:', geoError.message);
+        }
       }
     } catch (ipError) {
       console.warn('Could not fetch IP address:', ipError.message);
@@ -361,7 +455,12 @@ async function saveChatToAPI(userMessage, botResponse) {
         userMessage: userMessage,
         botResponse: botResponse,
         website: website,
-        ipAddress: ipAddress
+        ipAddress: ipAddress,
+        sessionId: currentSessionId,
+        messageIndex: messageIndex,
+        timeToRespond: timeToRespond,
+        category: category,
+        geoLocationCity: geoLocationCity
       })
     });
 
