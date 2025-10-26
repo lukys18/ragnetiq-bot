@@ -67,26 +67,26 @@
     // Session management
     let sessionId = null;
     let messageIndex = 0;
+    let emailSubmittedInSession = false; // Track if email was submitted in this session
 
-    // Generate or retrieve session ID
+    // Generate NEW session ID every time (on page load/refresh)
     function getSessionId() {
       if (!sessionId) {
-        // Check if session exists in sessionStorage
-        sessionId = sessionStorage.getItem('ragnetiq_session_id');
-        if (!sessionId) {
-          // Generate new UUID for session
-          sessionId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-            const r = Math.random() * 16 | 0;
-            const v = c == 'x' ? r : (r & 0x3 | 0x8);
-            return v.toString(16);
-          });
-          sessionStorage.setItem('ragnetiq_session_id', sessionId);
-          console.log('🆔 New session created:', sessionId);
-        } else {
-          console.log('🔄 Existing session resumed:', sessionId);
-        }
+        // Always generate new UUID for each browser session/refresh
+        sessionId = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          const r = Math.random() * 16 | 0;
+          const v = c == 'x' ? r : (r & 0x3 | 0x8);
+          return v.toString(16);
+        });
+        console.log('🆔 New session created:', sessionId);
       }
       return sessionId;
+    }
+
+    // Mark that email was submitted in this session
+    function markEmailSubmittedForSession() {
+      emailSubmittedInSession = true;
+      console.log('📧 Email submitted flag set to TRUE for session:', sessionId);
     }
 
     // Inicializácia RAG systému po načítaní databázy
@@ -218,6 +218,11 @@
             // Úspešná správa
             appendMessage("RAGNETIQ", "🎉 **Ďakujeme!** Vaša správa bola úspešne odoslaná. Odpovieme vám čo najskôr.", "bot");
             
+            // ============================================================
+            // MARK SESSION AS EMAIL SUBMITTED
+            // ============================================================
+            markEmailSubmittedForSession();
+            
             // Skryť formulár po úspešnom odoslaní
             const formContainer = form.closest('.contact-form').parentElement;
             if (formContainer) {
@@ -292,6 +297,7 @@ async function sendMessage() {
     let ragContext = '';
     let sources = [];
     let useRAG = false;
+    let detectedCategory = 'všeobecné'; // Default category
 
     if (ragSystem) {
       relevantContent = ragSystem.searchRelevantContent(message, 3);
@@ -299,8 +305,32 @@ async function sendMessage() {
         ragContext = ragSystem.buildContext(relevantContent);
         sources = relevantContent.map(item => item.title);
         useRAG = true;
+        
+        // Determine category based on highest scoring RAG result
+        if (relevantContent[0] && relevantContent[0].title) {
+          const topResult = relevantContent[0].title.toLowerCase();
+          
+          if (topResult.includes('cen') || topResult.includes('balík') || topResult.includes('balíky') || topResult.includes('predplatné')) {
+            detectedCategory = 'ceny';
+          } else if (topResult.includes('kontakt') || topResult.includes('stretnutie') || topResult.includes('konzultácia')) {
+            detectedCategory = 'kontakt';
+          } else if (topResult.includes('proces') || topResult.includes('ako to funguje') || topResult.includes('postup') || topResult.includes('kroky')) {
+            detectedCategory = 'proces';
+          } else if (topResult.includes('funkci') || topResult.includes('feature') || topResult.includes('možnosti') || topResult.includes('chatbot')) {
+            detectedCategory = 'produkty';
+          } else if (topResult.includes('problém') || topResult.includes('podpora') || topResult.includes('pomoc')) {
+            detectedCategory = 'podpora';
+          }
+        }
+        
         console.log('Používam RAG s kontextom:', sources);
+        console.log('📊 Detekovaná kategória z RAG:', detectedCategory);
       }
+    }
+    
+    // Fallback: Use keyword-based categorization if RAG didn't find anything
+    if (!useRAG) {
+      detectedCategory = categorizeMessage(message);
     }
 
     // API volanie s kompletnou históriou a RAG kontextom
@@ -328,8 +358,8 @@ async function sendMessage() {
     // Calculate response time
     const timeToRespond = Date.now() - startTime;
     
-    // Determine category based on keywords in user message
-    const category = categorizeMessage(message);
+    // Use RAG-detected category (already set above)
+    const category = detectedCategory;
 
     // Kontrola či odpoveď obsahuje "nemám presné informácie" alebo podobné frázy
     const isInsufficientAnswer = reply.includes("nemám presné informácie") || 
@@ -460,7 +490,8 @@ async function saveChatToAPI(userMessage, botResponse, messageIndex, timeToRespo
         messageIndex: messageIndex,
         timeToRespond: timeToRespond,
         category: category,
-        geoLocationCity: geoLocationCity
+        geoLocationCity: geoLocationCity,
+        emailSubmitted: emailSubmittedInSession  // Boolean flag from session
       })
     });
 
@@ -477,6 +508,72 @@ async function saveChatToAPI(userMessage, botResponse, messageIndex, timeToRespo
   }
 }
 
+/**
+ * Saves email form submission to Vercel API endpoint
+ * @param {string} userName - User's name from form
+ * @param {string} userEmail - User's email from form
+ * @param {string} userMessage - User's message from form
+ */
+async function saveEmailSubmissionToAPI(userName, userEmail, userMessage) {
+  try {
+    const website = window.location.hostname;
+    const currentSessionId = getSessionId();
+    
+    // Get user's IP address and geolocation
+    let ipAddress = null;
+    let geoLocationCity = null;
+    
+    try {
+      const ipResponse = await fetch('https://api.ipify.org?format=json');
+      if (ipResponse.ok) {
+        const ipData = await ipResponse.json();
+        ipAddress = ipData.ip;
+        
+        try {
+          const geoResponse = await fetch(`https://ipapi.co/${ipAddress}/json/`);
+          if (geoResponse.ok) {
+            const geoData = await geoResponse.json();
+            geoLocationCity = geoData.city || null;
+          }
+        } catch (geoError) {
+          console.warn('Could not fetch geolocation:', geoError.message);
+        }
+      }
+    } catch (ipError) {
+      console.warn('Could not fetch IP address:', ipError.message);
+    }
+    
+    // Call the Vercel API endpoint to save the email submission
+    const response = await fetch('https://ragnetiq-bot.vercel.app/api/saveChat', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        userMessage: `[EMAIL FORM] ${userName} (${userEmail}): ${userMessage}`,
+        botResponse: 'Email form submitted successfully',
+        website: website,
+        ipAddress: ipAddress,
+        sessionId: currentSessionId,
+        messageIndex: null, // Email forms don't have message index
+        timeToRespond: null,
+        category: 'kontakt',
+        geoLocationCity: geoLocationCity,
+        emailSubmitted: true,
+        emailAddress: userEmail,
+        contactName: userName
+      })
+    });
+
+    if (response.ok) {
+      console.log('✅ Email form submission saved to database');
+    } else {
+      console.warn('⚠️ Failed to save email submission:', response.status, response.statusText);
+    }
+  } catch (error) {
+    console.error('❌ Error saving email submission to API:', error.message);
+  }
+}
 
 
 

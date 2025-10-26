@@ -14,7 +14,8 @@
  *   messageIndex: number,
  *   timeToRespond: number (milliseconds),
  *   category: string (optional),
- *   geoLocationCity: string (optional)
+ *   geoLocationCity: string (optional),
+ *   emailSubmitted: boolean (default: false)
  * }
  */
 
@@ -56,7 +57,8 @@ export default async function handler(req, res) {
       messageIndex,
       timeToRespond,
       category,
-      geoLocationCity
+      geoLocationCity,
+      emailSubmitted
     } = req.body;
 
     // Validate required fields
@@ -85,6 +87,7 @@ export default async function handler(req, res) {
       time_to_respond: timeToRespond || null,
       category: category || null,
       geo_location_city: geoLocationCity || null,
+      email_submitted: emailSubmitted || false,
       created_at: new Date().toISOString()
     };
 
