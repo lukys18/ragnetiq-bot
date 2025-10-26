@@ -224,8 +224,11 @@
             // ============================================================
             markEmailSubmittedForSession();
             
-            // Save email submission event to database
-            saveEmailEventToAPI(botSuccessMessage);
+            // Increment message index for email event
+            messageIndex++;
+            
+            // Save email submission event to database with proper message index
+            saveEmailEventToAPI(botSuccessMessage, messageIndex);
             
             // Skryť formulár po úspešnom odoslaní
             const formContainer = form.closest('.contact-form').parentElement;
@@ -516,8 +519,9 @@ async function saveChatToAPI(userMessage, botResponse, messageIndex, timeToRespo
  * Saves email form submission event to database
  * This is called immediately after successful email sending
  * @param {string} botSuccessMessage - The success message shown to user
+ * @param {number} emailMessageIndex - The message index for this email event
  */
-async function saveEmailEventToAPI(botSuccessMessage) {
+async function saveEmailEventToAPI(botSuccessMessage, emailMessageIndex) {
   try {
     const website = window.location.hostname;
     const currentSessionId = getSessionId();
@@ -558,7 +562,7 @@ async function saveEmailEventToAPI(botSuccessMessage) {
         website: website,
         ipAddress: ipAddress,
         sessionId: currentSessionId,
-        messageIndex: null, // Email event doesn't have message index
+        messageIndex: emailMessageIndex, // Proper sequential message index
         timeToRespond: null,
         category: 'Email',
         geoLocationCity: geoLocationCity,
@@ -567,7 +571,7 @@ async function saveEmailEventToAPI(botSuccessMessage) {
     });
 
     if (response.ok) {
-      console.log('✅ Email event saved to database');
+      console.log('✅ Email event saved to database (index:', emailMessageIndex + ')');
     } else {
       console.warn('⚠️ Failed to save email event:', response.status, response.statusText);
     }
