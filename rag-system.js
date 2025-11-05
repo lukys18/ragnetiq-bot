@@ -13,9 +13,9 @@ class RAGSystem {
     // Synonymá pre lepšie vyhľadávanie
     this.synonyms = {
       'cena': ['cenny', 'ceny', 'kolko', 'stoji', 'price', 'peniaze', 'platba', 'cost', 'balik', 'baliky', 'cennik'],
-      'basic': ['zakladny', 'jednoduchy', 'lacny', 'najlacnejsi', 'bežne'],
-      'pro': ['profesionalny', 'odporucany', 'odporucane', 'stredny', 'professional'],
-      'enterprise': ['velky', 'pokrocily', 'najlepsi', 'e-shop', 'e-commerce', 'eshop'],
+      'basic': ['zakladny', 'jednoduchy', 'lacny', 'najlacnejsi', 'bežne', 'informacne', 'male projekty'],
+      'pro': ['profesionalny', 'odporucany', 'odporucane', 'stredny', 'professional', 'pokrocile', 'male e-shopy'],
+      'enterprise': ['velky', 'pokrocily', 'najlepsi', 'e-shop', 'e-commerce', 'eshop', 'vacsi', 'znacky'],
       'kontakt': ['spojenie', 'informacie', 'udaje', 'email', 'telefon', 'adresa'],
       'pomoc': ['podpora', 'help', 'support', 'asistencia', 'pomoc'],
       'chatbot': ['bot', 'asistent', 'ai', 'robot'],
@@ -196,7 +196,7 @@ class RAGSystem {
   // Detekcia kategórie z dotazu
   getCategoryFromQuery(query) {
     const categoryKeywords = {
-      'pricing': ['cena', 'kolko', 'stoji', 'price', 'balik', 'mesacne', 'basic', 'pro', 'enterprise', '99', '199', 'cennik', 'baliky'],
+      'pricing': ['cena', 'kolko', 'stoji', 'price', 'balik', 'mesacne', 'basic', 'pro', 'enterprise', '49', '99', 'cennik', 'baliky'],
       'benefits': ['vyhody', 'preco', 'dovody', 'benefits', 'uzitocny'],
       'process': ['proces', 'ako', 'postup', 'kroky', 'implementacia'],
       'technical': ['integracia', 'technicke', 'crm', 'google sheets'],
@@ -231,10 +231,10 @@ class RAGSystem {
     );
     
     const bookingInstruction = isBookingRelated 
-      ? ' DÔLEŽITÉ: Calendly linky formátuj ako klikateľné hyperlinky. Pre Basic/Pro: <a href="https://calendly.com/ragnetiq/30min" target="_blank">Rezervovať konzultáciu</a>. Pre Enterprise: <a href="https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone" target="_blank">Rezervovať Enterprise konzultáciu</a>.'
+      ? ' DÔLEŽITÉ: Calendly linky formátuj ako klikateľné hyperlinky: <a href="https://calendly.com/ragnetiq/15-min" target="_blank">Rezervovať konzultáciu</a>.'
       : '';
     
-    return `PRESNÉ INFORMÁCIE O RAGNETIQ (používaj LEN tieto fakty):\n\n${context}\n\nINŠTRUKCIE: Odpovedaj presne podľa týchto informácií. NEPRÍDÁVAJ žiadne vlastné detaily.${bookingInstruction} PRESNÉ CENY: BASIC €99/mesiac, PRO €199/mesiac (odporúčané), ENTERPRISE podľa dohody - NIKDY iné sumy!`;
+    return `PRESNÉ INFORMÁCIE O RAGNETIQ (používaj LEN tieto fakty):\n\n${context}\n\nINŠTRUKCIE: Odpovedaj presne podľa týchto informácií. NEPRÍDÁVAJ žiadne vlastné detaily.${bookingInstruction} PRESNÉ CENY: BASIC €49/mesiac, PRO €99/mesiac (odporúčané), ENTERPRISE podľa dohody - NIKDY iné sumy!`;
   }
 
   // Získanie kontextu pre špecifickú kategóriu

@@ -22,15 +22,15 @@ window.aiPowerData = {
       id: "pricing-details",
       category: "pricing",
       title: "AI Chatbot Cenník - 3 balíky na výber",
-      content: "Ponúkame 3 cenové balíky: **BASIC €99/mesiac** - vhodné pre bežné stránky. Zahŕňa: základné prevedenie, 24/7 prevádzka, chatbot dizajnovo na mieru, vhodné pre informačné stránky, statické stránky bez databázy, základný support. **PRO €199/mesiac** (ODPORÚČANÉ) - pre pokročilé webstránky. Zahŕňa: všetko z Basic + emailový formulár v chatbote, priame odosielanie správ na váš mail, multijazyková podpora, prioritný support, pravidelné aktualizácie. **ENTERPRISE** - podľa dohody, pre e-commerce a e-shopy. Zahŕňa: všetko z Pro + pokročilé integrácie, vysoko výkonný AI model, vlastné features podľa dohody, dedikovaný support, SLA garancia. Každý balík je prispôsobiteľný podľa vašich potrieb.",
-      keywords: ["cenník", "€99", "€199", "basic", "pro", "enterprise", "mesačne", "balíky", "chatbot na mieru", "24/7", "email formulár", "multijazyčný", "e-commerce", "e-shop"]
+      content: "Ponúkame 3 cenové balíky: **BASIC €49/mesiac** - ideálne pre informačné weby a malé projekty. Zahŕňa: základná AI konfigurácia, chatbot dizajnovo na mieru, 24/7 prevádzka, statická databáza (FAQ, články, služby), technická podpora e-mailom, základný AI model. **PRO €99/mesiac** (ODPORÚČANÉ) - pre pokročilé weby a malé e-shopy. Zahŕňa: všetko z Basic + real-time databáza (automatické aktualizácie 1× denne), multijazyková podpora, e-mail formulár priamo v chatbote, priame odosielanie správ na váš e-mail, pokročilý reporting a prehľady, prístup k Admin Dashboardu, prioritná technická podpora. **ENTERPRISE** - cena podľa dohody, pre e-commerce projekty a väčšie značky. Zahŕňa: všetko z Pro + napojenie na produktový feed a skladové dáta, pokročilé integrácie (CRM, ERP, API), vysoko výkonný AI model, vlastné funkcionality podľa potrieb, dedikovaný support, konzultačné stretnutia s AI expertom. Každý balík je prispôsobiteľný podľa vašich potrieb.",
+      keywords: ["cenník", "€49", "€99", "basic", "pro", "enterprise", "mesačne", "balíky", "chatbot na mieru", "24/7", "email formulár", "multijazyčný", "e-commerce", "e-shop", "real-time databáza", "admin dashboard"]
     },
     {
       id: "real-impact",
       category: "benefits",
       title: "Reálny dopad na váš biznis",
-      content: "**3 sekundy** - priemerná doba odpovede (vs 4-24 hodín bez AI). **85% zákazníkov spokojných** s chatbotom podľa Gartner štúdie 2024. **40% zníženie nákladov** na support prvý rok po implementácii. **100+ konverzácií denne** bez ďalších nákladov. Chatbot pomáha firmám zlepšiť zákaznícky servis, ušetriť čas a peniaze, zvýšiť konverzie. Ceny od €99/mesiac (Basic), €199/mesiac (Pro) alebo Enterprise na mieru.",
-      keywords: ["3 sekundy", "85% spokojnosť", "40% zníženie", "100+ konverzácií", "reálny dopad", "Gartner", "ušetrite", "€99", "€199"]
+      content: "**3 sekundy** - priemerná doba odpovede (vs 4-24 hodín bez AI). **85% zákazníkov spokojných** s chatbotom podľa Gartner štúdie 2024. **40% zníženie nákladov** na support prvý rok po implementácii. **100+ konverzácií denne** bez ďalších nákladov. Chatbot pomáha firmám zlepšiť zákaznícky servis, ušetriť čas a peniaze, zvýšiť konverzie. Ceny od €49/mesiac (Basic), €99/mesiac (Pro) alebo Enterprise na mieru.",
+      keywords: ["3 sekundy", "85% spokojnosť", "40% zníženie", "100+ konverzácií", "reálny dopad", "Gartner", "ušetrite", "€49", "€99"]
     },
     {
       id: "technical-integration",
@@ -57,8 +57,8 @@ window.aiPowerData = {
       id: "booking-consultation",
       category: "booking",
       title: "Rezervácia konzultácie", 
-      content: "Môžete si rezervovať bezplatnú konzultáciu na 30-minútový online hovor. Počas konzultácie: vypočujeme si vaše potreby, predstavíme možnosti Ragnetiq platformy, prediskutujeme špecifické požiadavky. Konzultácia je bezplatná a nezáväzná. Rezervujte si termín: https://calendly.com/ragnetiq/30min",
-      keywords: ["rezervácia", "konzultácia", "Calendly", "stretnutie", "bezplatné", "30 minút", "online hovor", "nezáväzná"]
+      content: "Môžete si rezervovať bezplatnú konzultáciu na 15-minútový online hovor. Počas konzultácie: vypočujeme si vaše potreby, predstavíme možnosti Ragnetiq platformy, prediskutujeme špecifické požiadavky. Konzultácia je bezplatná a nezáväzná. Rezervujte si termín: https://calendly.com/ragnetiq/15-min",
+      keywords: ["rezervácia", "konzultácia", "Calendly", "stretnutie", "bezplatné", "15 minút", "online hovor", "nezáväzná"]
     },
     {
       id: "company-info",
@@ -85,15 +85,15 @@ window.aiPowerData = {
       id: "services-overview",
       category: "services",
       title: "Naše služby - AI Chatbot na mieru",
-      content: "Poskytujeme tvorbu AI chatbotov na mieru pre slovenské firmy. **Čo robíme:** Vytvárame chatboty, ktoré poznájú vaše produkty a služby, hovoria prirodzeným slovenským jazykom, sú prispôsobené vašej brand identity (farby, logo), zbierajú leady a kontakty, poskytujú 24/7 zákaznícku podporu. **Cena:** Basic €99/mes, Pro €199/mes (odporúčané), Enterprise na mieru. **Čas:** 3-5 dní od začiatku po spustenie.",
-      keywords: ["služby", "AI chatbot", "na mieru", "slovenské firmy", "čo robíme", "3-5 dní", "€99", "€199", "basic", "pro", "enterprise"]
+      content: "Poskytujeme tvorbu AI chatbotov na mieru pre slovenské firmy. **Čo robíme:** Vytvárame chatboty, ktoré poznájú vaše produkty a služby, hovoria prirodzeným slovenským jazykom, sú prispôsobené vašej brand identity (farby, logo), zbierajú leady a kontakty, poskytujú 24/7 zákaznícku podporu. **Cena:** Basic €49/mes, Pro €99/mes (odporúčané), Enterprise na mieru. **Čas:** 3-5 dní od začiatku po spustenie.",
+      keywords: ["služby", "AI chatbot", "na mieru", "slovenské firmy", "čo robíme", "3-5 dní", "€49", "€99", "basic", "pro", "enterprise"]
     },
     {
       id: "competitive-advantages",
       category: "advantages",
       title: "Prečo Ragnetiq - naše výhody",
-      content: "**Prečo si vybrať Ragnetiq:** 100% slovenský prirodzený jazyk (nie preklad), chatbot na mieru (vaše farby, logo, brand), rýchla implementácia (3-5 dní), transparentné cenové balíky (Basic €99, Pro €199, Enterprise na mieru), neobmedzené konverzácie vo všetkých balíkoch, natrénovaný AI ktorý pozná vaše produkty, profesionálny support, pravidelné aktualizácie (Pro a Enterprise). Nie sme šablóny - každý chatbot je unikátny!",
-      keywords: ["prečo Ragnetiq", "slovenský jazyk", "na mieru", "3-5 dní", "transparentné ceny", "neobmedzené", "support", "unikátny", "€99", "€199"]
+      content: "**Prečo si vybrať Ragnetiq:** 100% slovenský prirodzený jazyk (nie preklad), chatbot na mieru (vaše farby, logo, brand), rýchla implementácia (3-5 dní), transparentné cenové balíky (Basic €49, Pro €99, Enterprise na mieru), neobmedzené konverzácie vo všetkých balíkoch, natrénovaný AI ktorý pozná vaše produkty, profesionálny support, pravidelné aktualizácie (Pro a Enterprise). Nie sme šablóny - každý chatbot je unikátny!",
+      keywords: ["prečo Ragnetiq", "slovenský jazyk", "na mieru", "3-5 dní", "transparentné ceny", "neobmedzené", "support", "unikátny", "€49", "€99"]
     },
     {
       id: "target-clients",
@@ -127,14 +127,14 @@ window.aiPowerData = {
       id: "consultation-details",
       category: "booking",
       title: "Bezplatná konzultácia - detaily",
-      content: "**Objednať bezplatnú konzultáciu** - 30-minútový online hovor. Čo sa deje počas konzultácie: 1) Vypočujeme si vaše potreby a ciele, 2) Predstavíme možnosti Ragnetiq platformy, 3) Prediskutujeme špecifické požiadavky pre váš chatbot, 4) Navrhneme stratégiu implementácie. Konzultácia je úplne bezplatná a nezáväzná. **Pre Basic/Pro:** https://calendly.com/ragnetiq/30min | **Pre Enterprise:** https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone | Začnime spolu!",
-      keywords: ["bezplatná konzultácia", "30 minút", "online", "nezáväzná", "začnime spolu", "objednať", "stratégia", "calendly"]
+      content: "**Objednať bezplatnú konzultáciu** - 15-minútový online hovor. Čo sa deje počas konzultácie: 1) Vypočujeme si vaše potreby a ciele, 2) Predstavíme možnosti Ragnetiq platformy, 3) Prediskutujeme špecifické požiadavky pre váš chatbot, 4) Navrhneme stratégiu implementácie. Konzultácia je úplne bezplatná a nezáväzná. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/15-min | Začnime spolu!",
+      keywords: ["bezplatná konzultácia", "15 minút", "online", "nezáväzná", "začnime spolu", "objednať", "stratégia", "calendly"]
     },
     {
       id: "enterprise-consultation",
       category: "booking",
       title: "Enterprise konzultácia - pre veľké projekty",
-      content: "**Enterprise konzultácia** - špeciálna konzultácia pre e-commerce, e-shopy a veľké projekty s vysokými nárokmi. Počas konzultácie prediskutujeme: pokročilé integrácie (CRM, ERP, platobné systémy), vlastné AI modely a features, SLA požiadavky a garancia dostupnosti, dedikovaný support a account manager, bezpečnosť a GDPR na vysokej úrovni, škálovateľnosť riešenia. **Rezervovať Enterprise konzultáciu:** https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone",
+      content: "**Enterprise konzultácia** - špeciálna konzultácia pre e-commerce, e-shopy a veľké projekty s vysokými nárokmi. Počas konzultácie prediskutujeme: pokročilé integrácie (CRM, ERP, platobné systémy), vlastné AI modely a features, SLA požiadavky a garancia dostupnosti, dedikovaný support a account manager, bezpečnosť a GDPR na vysokej úrovni, škálovateľnosť riešenia. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/15-min",
       keywords: ["enterprise konzultácia", "veľké projekty", "e-shop konzultácia", "pokročilé", "calendly", "rezervácia", "enterprise meeting"]
     },
     {
@@ -147,29 +147,29 @@ window.aiPowerData = {
     {
       id: "pricing-basic-package",
       category: "pricing",
-      title: "Basic balík - €99/mesiac",
-      content: "**BASIC balík €99/mesiac** - vhodný pre bežné informačné stránky. **Čo je zahrnuté:** Základné prevedenie chatbota, 24/7 nepretržitá prevádzka, chatbot dizajnovo prispôsobený na mieru (vaše farby, logo), vhodné pre informačné stránky, funguje na statických stránkach bez databázy, základný email support. Ideálne pre menšie firmy alebo stránky, ktoré potrebujú základnú zákaznícku podporu bez pokročilých funkcií. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/30min",
-      keywords: ["basic", "€99", "99 eur", "základný", "informačné stránky", "statické", "bežné stránky", "menšie firmy", "základné prevedenie", "rezervácia"]
+      title: "Basic balík - €49/mesiac",
+      content: "**BASIC balík €49/mesiac** - ideálne pre informačné weby a malé projekty. **Čo je zahrnuté:** Základná AI konfigurácia, chatbot dizajnovo prispôsobený na mieru (vaše farby, logo), 24/7 nepretržitá prevádzka, statická databáza (FAQ, články, služby), technická podpora e-mailom, základný AI model. Ideálne pre menšie firmy alebo informačné stránky, ktoré potrebujú základnú zákaznícku podporu bez pokročilých funkcií. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/15-min",
+      keywords: ["basic", "€49", "49 eur", "základný", "informačné stránky", "statické", "malé projekty", "menšie firmy", "základná AI konfigurácia", "rezervácia"]
     },
     {
       id: "pricing-pro-package",
       category: "pricing",
-      title: "Pro balík - €199/mesiac (ODPORÚČANÉ)",
-      content: "**PRO balík €199/mesiac** - odporúčaný pre pokročilé webstránky. **Čo je zahrnuté:** Všetko z Basic balíka PLUS emailový formulár priamo v chatbote, priame automatické odosielanie správ na váš email, multijazyková podpora (slovenčina, čeština, angličtina a viac), prioritný support s rýchlejšou odpoveďou, pravidelné aktualizácie obsahu a funkcií. Najlepšie riešenie pre firmy, ktoré chcú profesionálny AI chatbot s pokročilými funkciami za rozumnú cenu. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/30min",
-      keywords: ["pro", "€199", "199 eur", "odporúčané", "pokročilé", "email formulár", "multijazyčný", "prioritný support", "aktualizácie", "profesionálny", "rezervácia"]
+      title: "Pro balík - €99/mesiac (ODPORÚČANÉ)",
+      content: "**PRO balík €99/mesiac** - odporúčaný pre pokročilé weby a malé e-shopy. **Čo je zahrnuté:** Všetko z Basic balíka PLUS real-time databáza s automatickými aktualizáciami 1× denne, multijazyková podpora (slovenčina, čeština, angličtina a viac), e-mail formulár priamo v chatbote, priame automatické odosielanie správ na váš e-mail, pokročilý reporting a prehľady, prístup k Admin Dashboardu, prioritná technická podpora. Najlepšie riešenie pre firmy, ktoré chcú profesionálny AI chatbot s pokročilými funkciami za rozumnú cenu. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/15-min",
+      keywords: ["pro", "€99", "99 eur", "odporúčané", "pokročilé", "email formulár", "multijazyčný", "prioritný support", "real-time databáza", "admin dashboard", "malé e-shopy", "profesionálny", "rezervácia"]
     },
     {
       id: "pricing-enterprise-package",
       category: "pricing",
       title: "Enterprise balík - Podľa dohody",
-      content: "**ENTERPRISE balík** - cena podľa dohody, určený pre e-commerce a e-shopy s vysokými nárokmi. **Čo je zahrnuté:** Všetko z Pro balíka PLUS pokročilé integrácie (CRM systémy, obchodné platformy, platobné brány), vysoko výkonný AI model GPT-4 alebo lepší, vlastné features a funkcie podľa vašich špecifických požiadaviek, dedikovaný account manager a support tím, SLA garancia (Service Level Agreement) s garantovanou dostupnosťou. Ideálne pre e-shopy, veľké firmy alebo projekty s jedinečnými požiadavkami. **Rezervovať Enterprise konzultáciu:** https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone",
-      keywords: ["enterprise", "podľa dohody", "e-commerce", "e-shop", "pokročilé integrácie", "GPT-4", "vlastné features", "dedikovaný support", "SLA", "veľké firmy", "rezervácia"]
+      content: "**ENTERPRISE balík** - cena podľa dohody, určený pre e-commerce projekty a väčšie značky. **Čo je zahrnuté:** Všetko z Pro balíka PLUS napojenie na produktový feed a skladové dáta, pokročilé integrácie (CRM, ERP, API, platobné brány), vysoko výkonný AI model, vlastné funkcionality podľa potrieb, dedikovaný account manager a support tím, konzultačné stretnutia s AI expertom, SLA garancia s garantovanou dostupnosťou. Ideálne pre veľké e-commerce projekty, väčšie značky alebo firmy s jedinečnými požiadavkami. **Rezervovať konzultáciu:** https://calendly.com/ragnetiq/15-min",
+      keywords: ["enterprise", "podľa dohody", "e-commerce", "väčšie značky", "produktový feed", "skladové dáta", "pokročilé integrácie", "CRM", "ERP", "API", "vlastné funkcionality", "dedikovaný support", "AI expert", "SLA", "veľké firmy", "rezervácia"]
     },
     {
       id: "faq-cost-breakdown",
       category: "faq",
       title: "FAQ: Čo presne je zahrnuté v cene?",
-      content: "Máme 3 balíky: **BASIC €99/mes** - základné prevedenie, 24/7 prevádzka, dizajn na mieru, pre informačné stránky, základný support. **PRO €199/mes** (odporúčané) - všetko z Basic + emailový formulár, automatické odosielanie na mail, multijazyčnosť, prioritný support, pravidelné aktualizácie. **ENTERPRISE** - podľa dohody, všetko z Pro + pokročilé integrácie, GPT-4 model, vlastné features, dedikovaný support, SLA garancia. **Žiadne skryté poplatky, žiadne príplatky za konverzácie!**",
+      content: "Máme 3 balíky: **BASIC €49/mes** - základná AI konfigurácia, 24/7 prevádzka, dizajn na mieru, statická databáza (FAQ, články), technická podpora e-mailom, základný AI model. **PRO €99/mes** (odporúčané) - všetko z Basic + real-time databáza (automatické aktualizácie 1× denne), e-mail formulár, automatické odosielanie na mail, multijazyčnosť, pokročilý reporting, Admin Dashboard, prioritná technická podpora. **ENTERPRISE** - podľa dohody, všetko z Pro + napojenie na produktový feed a skladové dáta, pokročilé integrácie (CRM, ERP, API), vysoko výkonný AI model, vlastné funkcionality, dedikovaný support, konzultácie s AI expertom. **Žiadne skryté poplatky, žiadne príplatky za konverzácie!**",
       keywords: ["čo je zahrnuté", "čo obsahuje", "v cene", "included", "funkcie", "features", "zadarmo", "príplatky", "skryté poplatky", "limit", "balíky"]
     },
     {
@@ -232,14 +232,14 @@ window.aiPowerData = {
       id: "faq-which-package",
       category: "faq",
       title: "FAQ: Ktorý balík si mám vybrať?",
-      content: "**BASIC €99/mes** - ak máte jednoduchú informačnú stránku a potrebujete len základnú 24/7 podporu pre zákazníkov. **PRO €199/mes** (ODPORÚČAME) - ak chcete profesionálne riešenie s emailovým formulárom, multijazyčnosťou a prioritným supportom. Ideálne pre firmy poskytujúce služby alebo produkty. **ENTERPRISE** - ak prevádzkujete e-shop, potrebujete integrácie s CRM/platobným systémom, alebo máte špecifické požiadavky. Nie ste si istí? Rezervujte si bezplatnú konzultáciu a pomôžeme vám vybrať!",
+      content: "**BASIC €49/mes** - ak máte jednoduchú informačnú stránku alebo malý projekt a potrebujete len základnú 24/7 podporu pre zákazníkov so statickou databázou. **PRO €99/mes** (ODPORÚČAME) - ak chcete profesionálne riešenie s real-time databázou (automatické aktualizácie), e-mailovým formulárom, Admin Dashboardom, multijazyčnosťou a prioritným supportom. Ideálne pre firmy poskytujúce služby, produkty alebo malé e-shopy. **ENTERPRISE** - ak prevádzkujete väčší e-commerce projekt, potrebujete napojenie na produktový feed, skladové dáta, pokročilé integrácie (CRM, ERP, API), alebo máte špecifické požiadavky. Nie ste si istí? Rezervujte si bezplatnú konzultáciu a pomôžeme vám vybrať!",
       keywords: ["ktorý balík", "vybrať", "výber", "basic alebo pro", "porovnanie balíkov", "rozdiel", "odporúčame", "najlepší", "vhodný"]
     },
     {
       id: "faq-competitor-comparison",
       category: "faq",
       title: "FAQ: Čím sa líšite od konkurencie?",
-      content: "**Hlavné rozdiely:** 1) **Rýchlosť** - 3-5 dní vs týždne/mesiace, 2) **Slovenský jazyk** - prirodzený, nie preklad, 3) **Transparentné ceny** - jasné balíky (€99/€199/Enterprise), nie hidden fees ako u zahraničných, 4) **Osobný prístup** - nie automatizovaný proces, 5) **Neobmedzené konverzácie** - žiadne limity na správy vo všetkých balíkoch, 6) **Local support** - odpoveď v slovenčine. Nie sme medzinárodná korporácia - sme slovenská firma pre slovenské firmy.",
+      content: "**Hlavné rozdiely:** 1) **Rýchlosť** - 3-5 dní vs týždne/mesiace, 2) **Slovenský jazyk** - prirodzený, nie preklad, 3) **Transparentné ceny** - jasné balíky (€49/€99/Enterprise), nie hidden fees ako u zahraničných, 4) **Osobný prístup** - nie automatizovaný proces, 5) **Neobmedzené konverzácie** - žiadne limity na správy vo všetkých balíkoch, 6) **Local support** - odpoveď v slovenčine. Nie sme medzinárodná korporácia - sme slovenská firma pre slovenské firmy.",
       keywords: ["konkurencia", "rozdiel", "porovnanie", "lepší", "prečo vy", "alternatíva", "iné firmy", "comparison", "vs"]
     },
     {
@@ -253,8 +253,8 @@ window.aiPowerData = {
       id: "pricing-comparison",
       category: "pricing",
       title: "Porovnanie balíkov - Basic vs Pro vs Enterprise",
-      content: "**Porovnanie cenových balíkov:** BASIC €99/mes - základné prevedenie pre informačné stránky, 24/7 prevádzka, dizajn na mieru, základný support. PRO €199/mes (ODPORÚČANÉ) - všetko z Basic PLUS emailový formulár, automatické odosielanie správ na mail, multijazyčnosť, prioritný support, pravidelné aktualizácie. ENTERPRISE podľa dohody - všetko z Pro PLUS pokročilé integrácie (CRM, platobné brány), GPT-4 model, vlastné features, dedikovaný support, SLA garancia. Najlepší pomer cena/výkon má PRO balík.",
-      keywords: ["porovnanie", "basic vs pro", "rozdiely", "čo je lepšie", "porovnať", "comparison", "differences", "ktorý vybrať", "€99", "€199", "enterprise"]
+      content: "**Porovnanie cenových balíkov:** BASIC €49/mes - ideálne pre informačné weby a malé projekty, základná AI konfigurácia, 24/7 prevádzka, dizajn na mieru, statická databáza, technická podpora e-mailom, základný AI model. PRO €99/mes (ODPORÚČANÉ) - všetko z Basic PLUS real-time databáza (automatické aktualizácie 1× denne), e-mail formulár, automatické odosielanie správ, multijazyčnosť, pokročilý reporting, Admin Dashboard, prioritná technická podpora. ENTERPRISE podľa dohody - všetko z Pro PLUS napojenie na produktový feed a skladové dáta, pokročilé integrácie (CRM, ERP, API), vysoko výkonný AI model, vlastné funkcionality, dedikovaný support, konzultácie s AI expertom, SLA garancia. Najlepší pomer cena/výkon má PRO balík.",
+      keywords: ["porovnanie", "basic vs pro", "rozdiely", "čo je lepšie", "porovnať", "comparison", "differences", "ktorý vybrať", "€49", "€99", "enterprise"]
     }
   ]
 };

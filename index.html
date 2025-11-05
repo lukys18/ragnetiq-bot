@@ -60,7 +60,7 @@
     let chatHistory = [
       {
         role: "system",
-        content: "Si presný a spoľahlivý AI asistent firmy Ragnetiq. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, povedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: BASIC €99/mesiac, PRO €199/mesiac (odporúčané), ENTERPRISE podľa dohody - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní od začiatku po spustenie. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte. 6) Firma Ragnetiq poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu. 8) Pri otázkach o cenách vždy uveď všetky 3 balíky a odporúč PRO ako najlepší pomer cena/výkon. 9) PAMÄTAJ SI celú konverzáciu a odkazuj sa na predchádzajúce otázky používateľa. 10) Kontext z databázy dostaneš ako samostatnú system správu - použi ho pri odpovedaní."
+        content: "Si presný a spoľahlivý AI asistent firmy Ragnetiq. DÔLEŽITÉ PRAVIDLÁ: 1) POUŽÍVAJ LEN INFORMÁCIE Z POSKYTNUTÉHO KONTEXTU - nevymýšľaj si fakty, ceny ani detaily. 2) Ak nie sú informácie v kontexte, povedz 'Na túto otázku nemám presné informácie, kontaktujte nás prosím'. 3) PRESNÉ CENY: BASIC €49/mesiac, PRO €99/mesiac (odporúčané), ENTERPRISE podľa dohody - NIKDY neuvádzaj iné sumy! 4) PRESNÝ PROCES: 3-5 dní od začiatku po spustenie. 5) NEPRÍDÁVAJ detaily, ktoré nie sú v kontexte. 6) Firma Ragnetiq poskytuje LEN tvorbu AI chatbotov na mieru. 7) Odpovedaj profesionálne, stručne a len na základe faktov z kontextu. 8) Pri otázkach o cenách vždy uveď všetky 3 balíky a odporúč PRO ako najlepší pomer cena/výkon. 9) PAMÄTAJ SI celú konverzáciu a odkazuj sa na predchádzajúce otázky používateľa. 10) Kontext z databázy dostaneš ako samostatnú system správu - použi ho pri odpovedaní."
       }
     ];
 
@@ -597,16 +597,9 @@ async function saveEmailEventToAPI(botSuccessMessage, emailMessageIndex) {
         let formattedMessage = message.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
         
         // Automatické vytvorenie hyperlinkov z Calendly URL
-        // Basic/Pro link
         formattedMessage = formattedMessage.replace(
-          /https:\/\/calendly\.com\/ragnetiq\/30min(?![^<]*>)/g,
-          '<a href="https://calendly.com/ragnetiq/30min" target="_blank">🔗 REZERVOVAŤ KONZULTÁCIU</a>'
-        );
-        
-        // Enterprise link
-        formattedMessage = formattedMessage.replace(
-          /https:\/\/calendly\.com\/ragnetiq\/30-minutovy-rozhovor-clone(?![^<]*>)/g,
-          '<a href="https://calendly.com/ragnetiq/30-minutovy-rozhovor-clone" target="_blank">🔗 REZERVOVAŤ ENTERPRISE KONZULTÁCIU</a>'
+          /https:\/\/calendly\.com\/ragnetiq\/15-min(?![^<]*>)/g,
+          '<a href="https://calendly.com/ragnetiq/15-min" target="_blank">🔗 REZERVOVAŤ KONZULTÁCIU</a>'
         );
         
         // Backup - ak sa niektore URL nezachytili
