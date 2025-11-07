@@ -27,7 +27,8 @@ class RAGSystem {
       'zakaznik': ['klient', 'customer', 'uzivatel', 'navstevnik'],
       'tim': ['team', 'ludia', 'zakladatelia', 'marcel', 'lukas', 'bako', 'lehocky', 'ceo', 'developer'],
       'bezpecnost': ['gdpr', 'ochrana', 'sukromie', 'sifrovanie', 'rls', 'security', 'privacy'],
-      'vodoznak': ['branding', 'brand', 'logo', 'watermark', 'bez vodoznaku']
+      'vodoznak': ['branding', 'brand', 'logo', 'watermark', 'bez vodoznaku'],
+      'dashboard': ['admin', 'statistiky', 'metriky', 'reporting', 'analytics', 'prehľad', 'vykon', 'data']
     };
   }
 
@@ -202,7 +203,7 @@ class RAGSystem {
       'pricing': ['cena', 'kolko', 'stoji', 'price', 'balik', 'mesacne', 'basic', 'pro', 'enterprise', '49', '99', 'cennik', 'baliky', 'vodoznak'],
       'benefits': ['vyhody', 'preco', 'dovody', 'benefits', 'uzitocny', '45%', '70%', '90%'],
       'process': ['proces', 'ako', 'postup', 'kroky', 'implementacia'],
-      'technical': ['integracia', 'technicke', 'crm', 'google sheets', 'api', 'erp', 'feed'],
+      'technical': ['integracia', 'technicke', 'crm', 'google sheets', 'api', 'erp', 'feed', 'dashboard', 'admin', 'statistiky', 'metriky', 'reporting', 'analytics'],
       'support': ['podpora', 'pomoc', 'udrzba', 'problem'],
       'customization': ['na mieru', 'prisposobenie', 'vlastny', 'dizajn'],
       'booking': ['rezervacia', 'stretnutie', 'konzultacia', 'calendly'],

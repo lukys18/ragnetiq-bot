@@ -283,6 +283,13 @@ window.aiPowerData = {
       title: "Enterprise balík - Pokročilé funkcie",
       content: "**ENTERPRISE balík** obsahuje všetky pokročilé funkcie pre veľké e-commerce projekty a väčšie značky: **Napojenie na dáta:** Produktový feed a skladové dáta v reálnom čase. **Pokročilé integrácie:** CRM systémy (Salesforce, HubSpot), ERP systémy, API integrácie, platobné brány. **Vysoko výkonný AI model:** Najnovšie AI modely pre najlepšiu presnosť a rýchlosť odpovedí. **Vlastné funkcionality:** Riešenia šité presne na mieru vašim potrebám. **Dedikovaný support:** Osobný account manager a support tím. **Konzultácie s AI expertom:** Pravidelné stretnutia na optimalizáciu výkonu. **SLA garancia:** Garantovaná dostupnosť a rýchlosť odozvy. **Odstránenie vodoznaku:** Chatbot bez brandu Ragnetiq, 100% vo vašej brand identity. Cena podľa dohody.",
       keywords: ["enterprise", "pokročilé funkcie", "CRM", "ERP", "API", "produktový feed", "skladové dáta", "SLA", "dedikovaný support", "AI expert", "vodoznak", "branding"]
+    },
+    {
+      id: "admin-dashboard-features",
+      category: "technical",
+      title: "Admin Dashboard - Kompletný prehľad (Pro a Enterprise)",
+      content: "**Admin Dashboard** je dostupný od PRO balíka a vyššie. Poskytuje detailný prehľad o výkone chatbota v reálnom čase. **Kľúčové metriky:** Počet správ celkovo, počet konverzácií, unikátni používatelia, e-mailové leady, priemerný čas odpovede, najrýchlejšia odpoveď, najpomalšia odpoveď, úspešnosť e-mail konverzie. **Analytika a grafy:** Aktivita podľa času (denné/týždenné/mesačné trendy), kategórie otázok (aké témy zákazníkov zaujímajú), distribúcia rýchlosti odpovedí, aktivita podľa hodín v dni (kedy je najväčší traffic), top mestá používateľov (geografická distribúcia), kategórie vedúce k e-mailovému kontaktu (ktoré témy generujú leady). **Audit Log:** Kompletná história všetkých správ s možnosťou filtrovania a exportu. Dashboard je intuitívny, responzívny a prístupný 24/7 z akéhokoľvek zariadenia.",
+      keywords: ["admin dashboard", "metriky", "analytics", "štatistiky", "reporting", "počet správ", "konverzie", "leady", "čas odpovede", "aktivita", "kategórie", "audit log", "história správ", "geografická distribúcia", "real-time", "pro", "enterprise"]
     }
   ]
 };
