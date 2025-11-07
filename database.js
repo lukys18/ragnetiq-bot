@@ -15,8 +15,8 @@ window.aiPowerData = {
       id: "implementation-process",
       category: "process", 
       title: "Proces vzniku chatbota - 5 krokov",
-      content: "**Celý proces je jednoduchý a rýchly - od prvého kontaktu po funkčný chatbot len za 3-5 dní.** Krok 1: **Rezervácia online meetingu** - 30-minútový online hovor, kde si vypočujeme vaše potreby. Krok 2: **Vytvorenie dizajnu a prototypu** - na základe našej diskusie vytvoríme funkčný prototyp chatbota. Krok 3: **Postupné upravovanie funkcií** - spolu doladíme chatbota podľa vašich individuálnych požiadaviek. Krok 4: **Finalizácia a testovanie** - dokončíme všetky nastavenia a prispôsobíme chatbota do posledného detailu. Krok 5: **Integrácia na web** - pár riadkov kódu a chatbot je na vašej stránke. Všetko zvládneme za vás. Začnime spolu!",
-      keywords: ["proces", "5 krokov", "3-5 dní", "online meeting", "prototyp", "dizajn", "testovanie", "integrácia", "rýchly", "jednoduchý"]
+      content: "**Celý proces je jednoduchý a rýchly - od prvého kontaktu po funkčný chatbot len za 3-5 dní.** Krok 1: **Rezervácia online meetingu** - 15-minútový online hovor, kde si vypočujeme vaše potreby. Krok 2: **Vytvorenie dizajnu a prototypu** - na základe našej diskusie vytvoríme funkčný prototyp chatbota. Krok 3: **Postupné upravovanie funkcií** - spolu doladíme chatbota podľa vašich individuálnych požiadaviek. Krok 4: **Finalizácia a testovanie** - dokončíme všetky nastavenia a prispôsobíme chatbota do posledného detailu. Krok 5: **Integrácia na web** - pár riadkov kódu a chatbot je na vašej stránke. Všetko zvládneme za vás. Začnime spolu!",
+      keywords: ["proces", "5 krokov", "3-5 dní", "online meeting", "15 minút", "prototyp", "dizajn", "testovanie", "integrácia", "rýchly", "jednoduchý"]
     },
     {
       id: "pricing-details",
@@ -43,8 +43,8 @@ window.aiPowerData = {
       id: "support-maintenance",
       category: "support",
       title: "Podpora a údržba zahrnutá v cene",
-      content: "V cene je zahrnuté: Email notifikácie pri nových správach, pravidelné aktualizácie obsahu (podľa dohody, stále zahrnuté v cene), email podpora s odpoveďou do 24 hodín. V prípade akýchkoľvek otázok alebo problémov nás kontaktujte na info@ragnetiq.com alebo +421 904 603 171. Odpovieme vám do 24 hodín.",
-      keywords: ["podpora", "údržba", "email notifikácie", "aktualizácie", "podľa dohody", "odpoveď do 24h", "zahrnuté v cene"]
+      content: "V cene je zahrnuté: Email notifikácie pri nových správach, pravidelné aktualizácie obsahu (podľa dohody, stále zahrnuté v cene), email podpora s odpoveďou do 24 hodín. V prípade akýchkoľvek otázok alebo problémov nás kontaktujte na info@ragnetiq.com alebo +421 904 603 171 / +421 902 502 402. Odpovieme vám do 24 hodín.",
+      keywords: ["podpora", "údržba", "email notifikácie", "aktualizácie", "podľa dohody", "odpoveď do 24h", "zahrnuté v cene", "+421 904 603 171", "+421 902 502 402"]
     },
     {
       id: "customization-options",
@@ -64,21 +64,21 @@ window.aiPowerData = {
       id: "company-info",
       category: "company",
       title: "O spoločnosti Ragnetiq",
-      content: "Ragnetiq - AI chatboty pre slovenské firmy. Personalizóvané, bezpečné a jednoducho integrovateľné riešenia. Založená v roku 2025 Marcelom Lehockým. Sídlime v Bratislave, Slovensko. Naše motto: 'AI Chatbot, ktorý predáva kým vy spíte'. Špecializujeme sa výhradne na tvorbu AI chatbotov na mieru. Kontakt: info@ragnetiq.com, +421 904 603 171, www.ragnetiq.com",
-      keywords: ["o nás", "Ragnetiq", "slovenské firmy", "založená 2025", "Marcel Lehocky", "Bratislava", "personalizóvané", "bezpečné", "majiteľ", "zakladateľ"]
+      content: "Ragnetiq - AI chatboty pre slovenské firmy. Sme tím vývojárov s vášňou pre technológie, ktorí pomáhajú firmám posúvať sa vpred prostredníctvom inteligentných AI riešení. Vytvárame inteligentné AI chatboty s RAG technológiou, ktoré revolučne menia spôsob, akým firmy komunikujú so svojimi zákazníkmi. Veríme, že kvalitná zákaznícka podpora by mala byť dostupná 24/7, okamžite a s konzistentnou kvalitou. Špecializujeme sa na optimalizáciu zákazníckej cesty - priemerný nárast konverzií o 45%. Založená v roku 2025. Sídlime v Bratislave, Slovensko. Kontakt: info@ragnetiq.com, +421 904 603 171, +421 902 502 402, www.ragnetiq.com",
+      keywords: ["o nás", "Ragnetiq", "slovenské firmy", "založená 2025", "RAG technológia", "Bratislava", "personalizóvané", "bezpečné", "45% konverzie", "tím", "misia"]
     },
     {
       id: "contact-info",
       category: "contact",
       title: "Kontaktné informácie",
-      content: "**Kontakt:** Bratislava, Slovensko | Email: info@ragnetiq.com | Telefón: +421 904 603 171 | Web: www.ragnetiq.com. **Máte otázky?** Napíšte nám a my sa vám ozveme do 24 hodín. Môžete nás kontaktovať emailom, telefónom alebo cez kontaktný formulár na webstránke. Odpovieme vám čo najskôr!",
-      keywords: ["kontakt", "+421 904 603 171", "info@ragnetiq.com", "Bratislava", "24 hodín", "email", "telefón", "formulár"]
+      content: "**Kontakt:** Bratislava, Slovensko | Email: info@ragnetiq.com | Telefón: +421 904 603 171 / +421 902 502 402 | Web: www.ragnetiq.com. **Máte otázky?** Napíšte nám a my sa vám ozveme do 24 hodín. Môžete nás kontaktovať emailom, telefónom alebo cez kontaktný formulár na webstránke. Odpovieme vám čo najskôr!",
+      keywords: ["kontakt", "+421 904 603 171", "+421 902 502 402", "info@ragnetiq.com", "Bratislava", "24 hodín", "email", "telefón", "formulár"]
     },
     {
       id: "location-address",
       category: "contact",
       title: "Adresa a lokácia",
-      content: "**Naša adresa:** Bratislava, Slovensko. Sme slovenská firma sídliaca v hlavnom meste. Pre presné stretnutia a online konzultácie nás kontaktujte na +421 904 603 171 alebo info@ragnetiq.com.",
+      content: "**Naša adresa:** Bratislava, Slovensko. Sme slovenská firma sídliaca v hlavnom meste. Pre presné stretnutia a online konzultácie nás kontaktujte na +421 904 603 171 / +421 902 502 402 alebo info@ragnetiq.com.",
       keywords: ["adresa", "lokácia", "kde", "kde sa nachádzate", "kde sídlite", "kde ste", "poloha", "mapa", "location", "Bratislava", "slovensko"]
     },
     {
@@ -113,8 +113,8 @@ window.aiPowerData = {
       id: "gdpr-privacy",
       category: "legal",
       title: "GDPR a ochrana súkromia",
-      content: "Sme plne v súlade s GDPR nariadeniami a zásadami ochrany súkromia. Všetky údaje spracovávame bezpečne a transparentne. Naše chatboty sú navrhnuté s ohľadom na ochranu osobných údajov a súkromie používateľov. Copyright © 2025 Ragnetiq. Všetky práva vyhradené.",
-      keywords: ["GDPR", "ochrana údajov", "súkromie", "bezpečne", "transparentne", "copyright 2025", "ochrana"]
+      content: "Sme plne v súlade s GDPR nariadeniami (Nariadenie EÚ 2016/679) a zákonom č. 18/2018 Z.z. o ochrane osobných údajov. **Bezpečnosť:** Všetky údaje sú ukladané v šifrovanej databáze s Row Level Security (RLS) systémom a prísnymi prístupovými pravidlami. Prístup má len super admin a autorizovaní správcovia. **Čo zbierame:** Analytické údaje z chatbota (anonymné) - obsah konverzácie, technické údaje, IP adresa (len na určenie mesta), časové údaje. **Ako dlho:** Analytické údaje 24 mesiacov, kontaktné údaje 12 mesiacov. **Vaše práva:** Právo na prístup, opravu, vymazanie, obmedzenie spracovania, prenosnosť údajov. Údaje nepredávame tretím stranám. Kontakt: info@ragnetiq.com. Copyright © 2025 Ragnetiq. Všetky práva vyhradené.",
+      keywords: ["GDPR", "ochrana údajov", "súkromie", "šifrovanie", "Row Level Security", "RLS", "bezpečne", "transparentne", "copyright 2025", "práva používateľov", "GDPR compliant"]
     },
     {
       id: "slovak-market-focus",
@@ -141,8 +141,8 @@ window.aiPowerData = {
       id: "faq-implementation-time",
       category: "faq",
       title: "FAQ: Ako dlho trvá vytvorenie chatbota?",
-      content: "Celý proces od prvého kontaktu po funkčný chatbot na vašej stránke trvá **3-5 dní**. To zahŕňa: 1) Úvodnú konzultáciu (30 minút), 2) Vytvorenie prototypu (1-2 dni), 3) Testovanie a úpravy (1-2 dni), 4) Finálnu integráciu (niekoľko hodín). Sme jedni z najrýchlejších na trhu - konkurencia potrebuje týždne alebo mesiace.",
-      keywords: ["ako dlho", "trvá", "doba", "rýchlosť", "kedy bude hotový", "termín", "implementácia", "3-5 dní", "týždne", "mesiace"]
+      content: "Celý proces od prvého kontaktu po funkčný chatbot na vašej stránke trvá **3-5 dní**. To zahŕňa: 1) Úvodnú konzultáciu (15 minút), 2) Vytvorenie prototypu (1-2 dni), 3) Testovanie a úpravy (1-2 dni), 4) Finálnu integráciu (niekoľko hodín). Sme jedni z najrýchlejších na trhu - konkurencia potrebuje týždne alebo mesiace.",
+      keywords: ["ako dlho", "trvá", "doba", "rýchlosť", "kedy bude hotový", "termín", "implementácia", "3-5 dní", "15 minút", "týždne", "mesiace"]
     },
     {
       id: "pricing-basic-package",
@@ -253,8 +253,36 @@ window.aiPowerData = {
       id: "pricing-comparison",
       category: "pricing",
       title: "Porovnanie balíkov - Basic vs Pro vs Enterprise",
-      content: "**Porovnanie cenových balíkov:** BASIC €49/mes - ideálne pre informačné weby a malé projekty, základná AI konfigurácia, 24/7 prevádzka, dizajn na mieru, statická databáza, technická podpora e-mailom, základný AI model. PRO €99/mes (ODPORÚČANÉ) - všetko z Basic PLUS real-time databáza (automatické aktualizácie 1× denne), e-mail formulár, automatické odosielanie správ, multijazyčnosť, pokročilý reporting, Admin Dashboard, prioritná technická podpora. ENTERPRISE podľa dohody - všetko z Pro PLUS napojenie na produktový feed a skladové dáta, pokročilé integrácie (CRM, ERP, API), vysoko výkonný AI model, vlastné funkcionality, dedikovaný support, konzultácie s AI expertom, SLA garancia. Najlepší pomer cena/výkon má PRO balík.",
+      content: "**Porovnanie cenových balíkov:** BASIC €49/mes - ideálne pre informačné weby a malé projekty, základná AI konfigurácia, 24/7 prevádzka, dizajn na mieru, statická databáza, technická podpora e-mailom, základný AI model. PRO €99/mes (ODPORÚČANÉ) - všetko z Basic PLUS real-time databáza (automatické aktualizácie 1× denne), e-mail formulár, automatické odosielanie správ, multijazyčnosť, pokročilý reporting, Admin Dashboard, prioritná technická podpora. ENTERPRISE podľa dohody - všetko z Pro PLUS napojenie na produktový feed a skladové dáta, pokročilé integrácie (CRM, ERP, API), vysoko výkonný AI model, vlastné funkcionality, dedikovaný support, konzultácie s AI expertom, SLA garancia, odstránenie vodoznaku. Najlepší pomer cena/výkon má PRO balík.",
       keywords: ["porovnanie", "basic vs pro", "rozdiely", "čo je lepšie", "porovnať", "comparison", "differences", "ktorý vybrať", "€49", "€99", "enterprise"]
+    },
+    {
+      id: "team-info",
+      category: "company",
+      title: "Náš tím - Kto sme",
+      content: "**Marcel Lehocký - CEO & Developer:** Vizionársky vývojár so silným zameraním na business stratégiu a customer experience. Marcel je kľúčový pri navrhovaní riešení, ktoré nielen fungujú perfektne z technického hľadiska, ale prinášajú skutočnú hodnotu biznisom. Jeho analytické myslenie a orientácia na výsledky zabezpečujú, že každý projekt dosahuje merateľný úspech. **Lukáš Bako - CEO & Developer:** Skúsený vývojár s hlbokou expertízou v oblasti umelej inteligencie a strojového učenia. Lukáš je mozgom za našimi pokročilými RAG riešeniami a zodpovedá za technickú excelentnosť všetkých projektov. Jeho schopnosť transformovať komplexné technológie do užívateľsky prívetivých riešení je pre nás neoceniteľná.",
+      keywords: ["tím", "Marcel Lehocký", "Lukáš Bako", "CEO", "developer", "kto sme", "zakladatelia", "o tíme", "ľudia"]
+    },
+    {
+      id: "why-choose-us",
+      category: "advantages",
+      title: "Prečo s nami - Naše hodnoty",
+      content: "**Preukázateľné výsledky:** Naše riešenia prinášajú merateľný dopad - zníženie nákladov až o 70%, zvýšenie konverzií v priemere o 45% a spokojnosť zákazníkov nad 90%. **Špičková technológia:** Používame najmodernejšie RAG (Retrieval-Augmented Generation) technológie, ktoré zabezpečujú presné a kontextové odpovede založené na vašich reálnych dátach. **Personalizovaný prístup:** Každé riešenie prispôsobujeme vašim špecifickým potrebám. Nie sme fanúšikovia 'one-size-fits-all' prístupu - vaša firma je jedinečná a vaše riešenie by malo byť tiež. **Dlhodobé partnerstvo:** Nekončíme pri implementácii. Poskytujeme kontinuálnu podporu, pravidelné aktualizácie a optimalizácie. **Transparentná komunikácia:** Vždy viete, na čom pracujeme. Pravidelne vás informujeme o progrese a výsledkoch, pretože veríme, že dôvera je základom úspešnej spolupráce.",
+      keywords: ["prečo my", "hodnoty", "výsledky", "45% konverzie", "70% úspora", "90% spokojnosť", "RAG technológia", "partnerstvo", "transparentnosť"]
+    },
+    {
+      id: "gdpr-detailed",
+      category: "legal",
+      title: "GDPR detaily - Ochrana osobných údajov",
+      content: "**Prevádzkovateľ:** Ragnetiq s.r.o., info@ragnetiq.com, +421 904 603 171 / +421 902 502 402. **Bezpečnostné opatrenia:** Všetky údaje sú v šifrovanej databáze s Row Level Security (RLS), prístup má len super admin a autorizovaní správcovia, všetka komunikácia cez HTTPS, pravidelné bezpečnostné audity, žiadny neautorizovaný prístup - všetky prístupy sú logované. **Zbierané údaje:** Analytické údaje z chatbota (obsah konverzácie, technické údaje, IP adresa len na určenie mesta, časové údaje), kontaktné údaje pri komunikácii. **Doba uchovávania:** Analytické údaje 24 mesiacov, kontaktné údaje 12 mesiacov, zmluvné údaje 5 rokov po ukončení zmluvy. **Vaše práva:** Prístup k údajom, oprava, vymazanie (právo byť zabudnutý), obmedzenie spracovania, prenosnosť údajov, námietka, sťažnosť na Úrad na ochranu osobných údajov SR. **Zdieľanie:** Údaje nepredávame tretím stranám. Zdieľame len s GDPR compliant technickými partnermi (Supabase, Vercel).",
+      keywords: ["GDPR detaily", "Row Level Security", "šifrovanie", "bezpečnosť", "práva", "ochrana údajov", "súkromie", "RLS", "Supabase", "Vercel", "audit"]
+    },
+    {
+      id: "enterprise-features-detailed",
+      category: "pricing",
+      title: "Enterprise balík - Pokročilé funkcie",
+      content: "**ENTERPRISE balík** obsahuje všetky pokročilé funkcie pre veľké e-commerce projekty a väčšie značky: **Napojenie na dáta:** Produktový feed a skladové dáta v reálnom čase. **Pokročilé integrácie:** CRM systémy (Salesforce, HubSpot), ERP systémy, API integrácie, platobné brány. **Vysoko výkonný AI model:** Najnovšie AI modely pre najlepšiu presnosť a rýchlosť odpovedí. **Vlastné funkcionality:** Riešenia šité presne na mieru vašim potrebám. **Dedikovaný support:** Osobný account manager a support tím. **Konzultácie s AI expertom:** Pravidelné stretnutia na optimalizáciu výkonu. **SLA garancia:** Garantovaná dostupnosť a rýchlosť odozvy. **Odstránenie vodoznaku:** Chatbot bez brandu Ragnetiq, 100% vo vašej brand identity. Cena podľa dohody.",
+      keywords: ["enterprise", "pokročilé funkcie", "CRM", "ERP", "API", "produktový feed", "skladové dáta", "SLA", "dedikovaný support", "AI expert", "vodoznak", "branding"]
     }
   ]
 };

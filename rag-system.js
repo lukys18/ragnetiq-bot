@@ -16,15 +16,18 @@ class RAGSystem {
       'basic': ['zakladny', 'jednoduchy', 'lacny', 'najlacnejsi', 'bežne', 'informacne', 'male projekty'],
       'pro': ['profesionalny', 'odporucany', 'odporucane', 'stredny', 'professional', 'pokrocile', 'male e-shopy'],
       'enterprise': ['velky', 'pokrocily', 'najlepsi', 'e-shop', 'e-commerce', 'eshop', 'vacsi', 'znacky'],
-      'kontakt': ['spojenie', 'informacie', 'udaje', 'email', 'telefon', 'adresa'],
+      'kontakt': ['spojenie', 'informacie', 'udaje', 'email', 'telefon', 'adresa', '904 603 171', '902 502 402'],
       'pomoc': ['podpora', 'help', 'support', 'asistencia', 'pomoc'],
-      'chatbot': ['bot', 'asistent', 'ai', 'robot'],
-      'stretnutie': ['konzultacia', 'meeting', 'hovor', 'rozhovor', 'call'],
+      'chatbot': ['bot', 'asistent', 'ai', 'robot', 'rag'],
+      'stretnutie': ['konzultacia', 'meeting', 'hovor', 'rozhovor', 'call', 'calendly'],
       'rychly': ['okamzite', 'ihned', 'fast', 'quick', 'bezodkladne'],
       'web': ['stranka', 'website', 'webova', 'online'],
-      'firma': ['spolocnost', 'company', 'business', 'podnik'],
+      'firma': ['spolocnost', 'company', 'business', 'podnik', 'ragnetiq'],
       'vytvoriť': ['urobit', 'navrhnout', 'postavit', 'implementovat', 'vytvorit'],
-      'zakaznik': ['klient', 'customer', 'uzivatel', 'navstevnik']
+      'zakaznik': ['klient', 'customer', 'uzivatel', 'navstevnik'],
+      'tim': ['team', 'ludia', 'zakladatelia', 'marcel', 'lukas', 'bako', 'lehocky', 'ceo', 'developer'],
+      'bezpecnost': ['gdpr', 'ochrana', 'sukromie', 'sifrovanie', 'rls', 'security', 'privacy'],
+      'vodoznak': ['branding', 'brand', 'logo', 'watermark', 'bez vodoznaku']
     };
   }
 
@@ -196,14 +199,16 @@ class RAGSystem {
   // Detekcia kategórie z dotazu
   getCategoryFromQuery(query) {
     const categoryKeywords = {
-      'pricing': ['cena', 'kolko', 'stoji', 'price', 'balik', 'mesacne', 'basic', 'pro', 'enterprise', '49', '99', 'cennik', 'baliky'],
-      'benefits': ['vyhody', 'preco', 'dovody', 'benefits', 'uzitocny'],
+      'pricing': ['cena', 'kolko', 'stoji', 'price', 'balik', 'mesacne', 'basic', 'pro', 'enterprise', '49', '99', 'cennik', 'baliky', 'vodoznak'],
+      'benefits': ['vyhody', 'preco', 'dovody', 'benefits', 'uzitocny', '45%', '70%', '90%'],
       'process': ['proces', 'ako', 'postup', 'kroky', 'implementacia'],
-      'technical': ['integracia', 'technicke', 'crm', 'google sheets'],
+      'technical': ['integracia', 'technicke', 'crm', 'google sheets', 'api', 'erp', 'feed'],
       'support': ['podpora', 'pomoc', 'udrzba', 'problem'],
       'customization': ['na mieru', 'prisposobenie', 'vlastny', 'dizajn'],
       'booking': ['rezervacia', 'stretnutie', 'konzultacia', 'calendly'],
-      'contact': ['adresa', 'lokacia', 'kde', 'kontakt', 'telefon', 'email', 'nachadza', 'sidli']
+      'contact': ['adresa', 'lokacia', 'kde', 'kontakt', 'telefon', 'email', 'nachadza', 'sidli', '904', '902'],
+      'company': ['o nas', 'tim', 'team', 'marcel', 'lukas', 'bako', 'lehocky', 'zakladatelia', 'kto sme', 'ragnetiq'],
+      'legal': ['gdpr', 'ochrana', 'sukromie', 'bezpecnost', 'rls', 'sifrovanie', 'osobne udaje']
     };
 
     for (const [category, keywords] of Object.entries(categoryKeywords)) {

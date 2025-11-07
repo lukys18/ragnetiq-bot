@@ -1,0 +1,192 @@
+O nás
+Sme tím vývojárov s vášňou pre technológie, ktorí pomáhajú firmám posúvať sa vpred prostredníctvom inteligentných AI riešení. Náš cieľ je jednoduchý – zlepšiť vašu komunikáciu so zákazníkmi a zvýšiť vaše konverzie.
+
+Naša misia
+Vytvárame inteligentné AI chatboty s RAG technológiou, ktoré revolučne menia spôsob, akým firmy komunikujú so svojimi zákazníkmi. Veríme, že kvalitná zákaznícka podpora by mala byť dostupná 24/7, okamžite a s konzistentnou kvalitou.
+
+Zvyšujeme konverzie
+Špecializujeme sa na optimalizáciu zákazníckej cesty. Naše AI riešenia dokážu zodpovedať otázky okamžite, navigovať zákazníkov správnym smerom a premieňať viac návštevníkov na spokojných zákazníkov. Výsledky hovoria za nás – priemerný nárast konverzií o 45%.
+
+Záleží nám na vás
+Každý projekt berieme osobne. Nie sme len dodávatelia technológie – sme váš partner v raste. Pracujeme s vami hand-in-hand, aby sme pochopili vaše potreby, výzvy a ciele. Váš úspech je náš úspech.
+
+Náš tím
+ML
+Marcel Lehocký
+CEO • Developer
+
+Vizionársky vývojár so silným zameraním na business stratégiu a customer experience. Marcel je kľúčový pri navrhovaní riešení, ktoré nielen fungujú perfektne z technického hľadiska, ale prinášajú skutočnú hodnotu biznisom. Jeho analytické myslenie a orientácia na výsledky zabezpečujú, že každý projekt dosahuje merateľný úspech.
+
+LinkedIn profil
+LB
+Lukáš Bako
+CEO • Developer
+
+Skúsený vývojár s hlbokou expertízou v oblasti umelej inteligencie a strojového učenia. Lukáš je mozgom za našimi pokročilými RAG riešeniami a zodpovedá za technickú excelentnosť všetkých projektov. Jeho schopnosť transformovať komplexné technológie do užívateľsky prívetivých riešení je pre nás neoceniteľná.
+
+LinkedIn profil
+Prečo s nami?
+Preukázateľné výsledky
+Naše riešenia prinášajú merateľný dopad – zníženie nákladov až o 70%, zvýšenie konverzií v priemere o 45% a spokojnosť zákazníkov nad 90%.
+
+Špičková technológia
+Používame najmodernejšie RAG (Retrieval-Augmented Generation) technológie, ktoré zabezpečujú presné a kontextové odpovede založené na vašich reálnych dátach.
+
+Personalizovaný prístup
+Každé riešenie prispôsobujeme vašim špecifickým potrebám. Nie sme fanúšikovia "one-size-fits-all" prístupu – vaša firma je jedinečná a vaše riešenie by malo byť tiež.
+
+Dlhodobé partnerstvo
+Nekončíme pri implementácii. Poskytujeme kontinuálnu podporu, pravidelné aktualizácie a optimalizácie, aby vaše riešenie prinášalo stále lepšie výsledky.
+
+Transparentná komunikácia
+Vždy viete, na čom pracujeme. Pravidelne vás informujeme o progrese a výsledkoch, pretože veríme, že dôvera je základom úspešnej spolupráce.
+
+
+GDPR a Ochrana Súkromia
+Transparentné informácie o tom, ako spracovávame a chránime vaše osobné údaje v súlade s GDPR
+
+Posledná aktualizácia: 30. október 2025
+
+1
+Úvod a rozsah pôsobnosti
+Spoločnosť Ragnetiq (ďalej len "my" alebo "Ragnetiq") sa zaväzuje chrániť vaše súkromie a osobné údaje v súlade s Nariadením Európskeho parlamentu a Rady (EÚ) 2016/679 o ochrane fyzických osôb pri spracúvaní osobných údajov (GDPR) a so zákonom č. 18/2018 Z.z. o ochrane osobných údajov.
+
+Tento dokument vysvetľuje, aké údaje zbierame, prečo ich zbierame, ako ich používame a aké máte práva v súvislosti s ochranou vašich osobných údajov.
+
+2
+Prevádzkovateľ osobných údajov
+Ragnetiq s.r.o.
+
+Email: info@ragnetiq.com
+Telefón: +421 904 603 171 / +421 902 502 402
+Web: www.ragnetiq.com
+
+3
+Aké údaje zbierame a prečo
+Pri používaní našich služieb, najmä AI chatbotov, zbierame nasledujúce údaje:
+
+📊 Analytické údaje z chatbota (anonymné):
+Z každej interakcie s chatbotom zbierame anonymné analytické informácie na zlepšenie kvality služieb, optimalizáciu odpovedí a pokročilé štatistické analýzy. Tieto údaje zahŕňajú:
+
+Obsah konverzácie: Text správ odoslaných používateľom a odpovede chatbota
+Technické údaje: Typ zariadenia, prehliadač, operačný systém
+Časové údaje: Dátum a čas interakcie, dĺžka konverzácie
+IP adresa a lokalizácia: IP adresu používame na určenie mesta, z ktorého pochádza dopyt, pre potreby geografickej štatistiky a optimalizácie služieb
+Správanie používateľa: Počet správ, priemerná dĺžka konverzácie, úspešnosť riešenia dopytu
+Právny základ spracovania: Oprávnený záujem prevádzkovateľa (čl. 6 ods. 1 písm. f GDPR) - zlepšovanie kvality služieb a poskytovanie analytických prehľadov našim klientom.
+
+Kontaktné údaje: Ak nás kontaktujete prostredníctvom kontaktného formulára alebo emailu, spracovávame vaše meno, email a obsah správy na účely komunikácie a poskytnutia služieb.
+
+4
+Bezpečnosť a ochrana údajov
+Bezpečnosť vašich údajov berieme mimoriadne vážne. Implementovali sme nasledujúce bezpečnostné opatrenia:
+
+🔒 Šifrovanie a zabezpečená databáza:
+Všetky údaje sú ukladané v
+šifrovanej databáze
+s implementovaným
+Row Level Security (RLS) systémom
+a prísnymi prístupovými pravidlami. To znamená, že jednotlivé riadky v tabuľkách môže čítať len užívateľ s konkrétnym oprávnením.
+
+Prístupové práva: Prístup k údajom má len super admin a autorizovaní správcovia systému
+Šifrovanie v prenose: Všetka komunikácia prebieha cez šifrované HTTPS spojenie
+Šifrovanie v pokoji: Údaje sú šifrované aj pri uložení v databáze
+Pravidelné audity: Vykonávame pravidelné bezpečnostné audity a aktualizácie
+Minimalizácia údajov: Zbierame len údaje nevyhnutné pre fungovanie služby
+Žiadny neautorizovaný prístup: Nikto okrem super admina a oprávnených osôb nemá možnosť čítať riadky tabuliek. Všetky prístupy sú logované a monitorované.
+
+5
+Ako dlho uchovávame údaje
+Osobné údaje uchovávame len po dobu nevyhnutnú na splnenie účelu, na ktorý boli zozbierané:
+
+Analytické údaje z chatbota: 24 mesiacov od poslednej interakcie
+Kontaktné údaje: 12 mesiacov od poslednej komunikácie alebo do odvolania súhlasu
+Zmluvné údaje: Po dobu trvania zmluvy + 5 rokov (v súlade s daňovými predpismi)
+Po uplynutí doby uchovávania sú údaje bezpečne vymazané alebo anonymizované.
+
+6
+Vaše práva
+V súlade s GDPR máte nasledujúce práva:
+
+Právo na prístup: Máte právo získať informácie o tom, aké osobné údaje o vás spracovávame
+Právo na opravu: Môžete požiadať o opravu nesprávnych alebo neúplných údajov
+Právo na vymazanie: Máte právo požiadať o vymazanie vašich osobných údajov ("právo byť zabudnutý")
+Právo na obmedzenie spracovania: Môžete požiadať o obmedzenie spracovania vašich údajov
+Právo na prenosnosť údajov: Máte právo získať údaje v štruktúrovanom formáte
+Právo namietať: Môžete namietať proti spracovaniu vašich údajov na účely priameho marketingu
+Právo podať sťažnosť: Môžete podať sťažnosť na Úrad na ochranu osobných údajov SR
+Na uplatnenie týchto práv nás kontaktujte na info@ragnetiq.com. Vašu žiadosť vybavíme do 30 dní.
+
+7
+Zdieľanie údajov s tretími stranami
+Vaše osobné údaje nepredávame, neprenajímame ani inak nesprístupňujeme tretím stranám na marketingové účely.
+
+Údaje môžeme zdieľať len v nasledujúcich prípadoch:
+
+Technickí partneri: Poskytovatelia hostingu a cloudových služieb (napr. Supabase, Vercel) - všetci sú GDPR compliant
+Právne požiadavky: Ak to vyžaduje zákon alebo rozhodnutie súdu
+S vaším súhlasom: V prípade, že nám udelíte výslovný súhlas na zdieľanie údajov
+Všetci naši partneri sú povinní dodržiavať prísne štandardy ochrany údajov v súlade s GDPR.
+
+8
+Cookies a sledovacie technológie
+Naša webstránka používa cookies a podobné technológie na zlepšenie používateľskej skúsenosti a analytické účely:
+
+Nevyhnutné cookies: Potrebné pre základné fungovanie webu
+Analytické cookies: Google Analytics na analýzu návštevnosti (anonymizované IP adresy)
+Funkčné cookies: Zapamätanie vašich preferencií
+Cookies môžete kedykoľvek spravovať alebo odmietnuť v nastaveniach vášho prehliadača.
+
+9
+Zmeny týchto zásad
+Tieto zásady ochrany osobných údajov môžeme čas od času aktualizovať. O všetkých podstatných zmenách vás budeme informovať prostredníctvom emailu alebo oznámenia na našej webstránke.
+
+Odporúčame pravidelne kontrolovať túto stránku, aby ste boli informovaní o tom, ako chránime vaše údaje.
+
+Máte otázky ohľadom ochrany údajov?
+Ak máte akékoľvek otázky týkajúce sa spracovania vašich osobných údajov alebo chcete uplatniť svoje práva, neváhajte nás kontaktovať.
+
+info@ragnetiq.com
+
+
+
+Cenník
+Vyberte si riešenie, ktoré najlepšie vyhovuje vašim potrebám
+
+Basic
+49€ /mesiac
+Ideálne pre informačné weby a malé projekty
+
+✓ Základná AI konfigurácia
+✓ Chatbot dizajnovo na mieru
+✓ 24/7 prevádzka
+✓ Statická databáza (napr. FAQ, články, služby)
+✓ Technická podpora e-mailom
+✓ Základný AI model
+Začať s Basic
+Odporúčané
+Pro
+99€ /mesiac
+Pre pokročilé weby a malé e-shopy
+
+✓ Všetko z balíčka Basic
+✓ Real-time databáza (automatické aktualizácie 1× denne)
+✓ Multijazyková podpora
+✓ E-mail formulár priamo v chatbote
+✓ Priame odosielanie správ na váš e-mail
+✓ Pokročilý reporting a prehľady
+✓ Prístup k Admin Dashboardu
+✓ Prioritná technická podpora
+Začať s Pro
+Enterprise
+Cena podľa dohody
+Pre e-commerce projekty a väčšie značky
+
+✓ Všetko z balíčka Pro
+✓ Napojenie na produktový feed a skladové dáta
+✓ Pokročilé integrácie (CRM, ERP, API)
+✓ Vysoko výkonný AI model
+✓ Vlastné funkcionality podľa potrieb
+✓ Dedikovaný support
+✓ Odstránenie vodoznaku
+Požiadať o konzultáciu
